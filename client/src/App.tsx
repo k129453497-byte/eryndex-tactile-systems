@@ -18,6 +18,8 @@ import {
   SolutionsPage,
 } from "./pages/Home";
 
+const homeSectionHref = (section: string) => `${import.meta.env.BASE_URL}#${section}`;
+
 const navCopy = {
   about: { "zh-TW": "關於我們", "zh-CN": "关于我们", en: "About" },
   products: { "zh-TW": "產品", "zh-CN": "产品", en: "Products" },
@@ -45,10 +47,10 @@ function Header() {
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
         <nav className={open ? "main-nav is-open" : "main-nav"} aria-label="Primary navigation">
-          <Link href="/about" className={isActive("/about") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.about[lang]}</Link>
-          <Link href="/products" className={isActive("/products") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.products[lang]}</Link>
-          <Link href="/solutions" className={isActive("/solutions") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.solutions[lang]}</Link>
-          <Link href="/resources" className={isActive("/resources") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.resources[lang]}</Link>
+          <a href={homeSectionHref("about")} className={isActive("/about") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.about[lang]}</a>
+          <a href={homeSectionHref("products")} className={isActive("/products") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.products[lang]}</a>
+          <a href={homeSectionHref("solutions")} className={isActive("/solutions") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.solutions[lang]}</a>
+          <a href={homeSectionHref("resources")} className={isActive("/resources") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.resources[lang]}</a>
           <div className="nav-divider" aria-hidden="true" />
           <Link href="/contact" className="header-cta" onClick={onNav}>{navCopy.demo[lang]} <ArrowUpRight size={15} /></Link>
           <div className="language-switch" role="group" aria-label="Language selector">
@@ -75,7 +77,7 @@ function Footer() {
           </Link>
           <p>{lang === "zh-TW" ? "讓企業每天的工作，更清楚、更容易前進" : lang === "zh-CN" ? "让企业每天的工作，更清晰，更容易前进" : "Make everyday work clearer and easier to move forward"}</p>
         </div>
-        <div className="footer-col"><p className="footer-label">{lang === "en" ? "Explore" : lang === "zh-CN" ? "探索" : "探索"}</p><Link href="/about">{navCopy.about[lang]}</Link><Link href="/products">{navCopy.products[lang]}</Link><Link href="/solutions">{navCopy.solutions[lang]}</Link><Link href="/resources">{navCopy.resources[lang]}</Link></div>
+        <div className="footer-col"><p className="footer-label">{lang === "en" ? "Explore" : lang === "zh-CN" ? "探索" : "探索"}</p><a href={homeSectionHref("about")}>{navCopy.about[lang]}</a><a href={homeSectionHref("products")}>{navCopy.products[lang]}</a><a href={homeSectionHref("solutions")}>{navCopy.solutions[lang]}</a><a href={homeSectionHref("resources")}>{navCopy.resources[lang]}</a></div>
         <div className="footer-col"><p className="footer-label">{lang === "en" ? "Connect" : lang === "zh-CN" ? "联系" : "聯絡"}</p><Link href="/contact">{navCopy.contact[lang]}</Link><a href="mailto:contact@eryndex.com">contact@eryndex.com</a></div>
         <div className="footer-col"><p className="footer-label">{lang === "en" ? "Location" : lang === "zh-CN" ? "所在地" : "所在地"}</p><span>{lang === "en" ? "Taiwan" : lang === "zh-CN" ? "台湾" : "台灣"}</span><span>© 2026 Eryndex</span></div>
       </div>

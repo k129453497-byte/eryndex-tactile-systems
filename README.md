@@ -1,6 +1,6 @@
 # Eryndex 智序科技｜企業 AI 自動化與資料安全
 
-Eryndex 智序科技是一個面向中小型企業的多語 B2B 科技公司網站概念，聚焦 AI 工作流程自動化、企業資料安全、營運分析與內部 AI 邊緣運算。網站以「讓科技理解工作，讓企業專注成長」為品牌主張，採用 Signal Atelier 深色訊號場視覺語言與單頁 modal 導覽體驗。
+Eryndex 智序科技是一個面向中小型企業的多語 B2B 科技公司網站概念，聚焦 AI 工作流程自動化、企業資料安全、營運分析與內部 AI 邊緣運算。網站以「讓科技理解工作，讓企業專注成長」為品牌主張，採用 Signal Atelier 深色訊號場視覺語言與首頁主題錨點導覽體驗。
 
 ## Live site
 
@@ -30,7 +30,7 @@ PDF 涵蓋品牌定位、單頁 modal 架構、四項產品系統、產品專屬
 
 ## Experience architecture
 
-首頁是主要品牌場景；About、Products、Solutions、Resources、Contact 與 Credits 皆以可關閉的內容面板開啟。每個面板保留固定關閉控制、背景點擊關閉與 Escape 鍵路徑。產品詳情頁只展示兩項與目前產品具有連動價值的模組，避免使用無關的推薦內容。
+首頁是主要品牌場景；About、Products、Solutions、Resources 皆以首頁主題區段呈現，選單透過頁內錨點引導；Contact 與 Credits 仍保留獨立內容面板。每個面板保留固定關閉控制、背景點擊關閉與 Escape 鍵路徑。產品詳情頁只展示兩項與目前產品具有連動價值的模組，避免使用無關的推薦內容。
 
 ## Accessibility and quality scope
 

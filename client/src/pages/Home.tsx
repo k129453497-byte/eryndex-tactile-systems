@@ -1,6 +1,6 @@
 // Eryndex Signal Atelier｜頁面內容與互動採資料流長頁、偏移分欄與系統標籤，所有主要文案均以三語資料結構維護
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
-import { Link, useLocation, useRoute } from "wouter";
+import { Link, useRoute } from "wouter";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -142,7 +142,11 @@ function PrimaryButton({ href, children }: { href: string; children: ReactNode }
 }
 
 function SecondaryButton({ href, children }: { href: string; children: ReactNode }) {
-  return <Link href={href} className="button button-secondary">{children}<ArrowRight size={16} /></Link>;
+  return <a href={href} className="button button-secondary">{children}<ArrowRight size={16} /></a>;
+}
+
+function HomeAnchor({ id, className, children }: { id: string; className?: string; children: ReactNode }) {
+  return <a href={`${import.meta.env.BASE_URL}#${id}`} className={className}>{children}</a>;
 }
 
 function SignalRail({ label }: { label?: string }) {
@@ -184,6 +188,63 @@ function HomeCTA() {
   return <section className="cta-band"><div className="container cta-inner"><div><h2>{lang === "en" ? "Start with one workflow worth understanding" : lang === "zh-CN" ? "从一个值得理解的工作流开始" : "從一個值得理解的工作流開始"}</h2></div><PrimaryButton href="/contact">{lang === "en" ? "Talk to Eryndex about your needs" : lang === "zh-CN" ? "与 Eryndex 讨论需求" : "與 Eryndex 討論需求"}</PrimaryButton></div></section>;
 }
 
+function HomeAbout() {
+  const { lang } = useSite();
+  const values = [
+    { icon: Gauge, title: { "zh-TW": "效率", "zh-CN": "效率", en: "Efficiency" }, text: { "zh-TW": "把時間還給需要判斷的工作，而不是讓團隊追著流程跑", "zh-CN": "把时间还给需要判断的工作，而不是让团队追着流程跑", en: "Return time to the work that needs judgment, not the work of chasing process" } },
+    { icon: ShieldCheck, title: { "zh-TW": "安全", "zh-CN": "安全", en: "Security" }, text: { "zh-TW": "清楚定義資料邊界、權限與風險，讓安全成為日常設計", "zh-CN": "清晰定义数据边界、权限与风险，让安全成为日常设计", en: "Make data boundaries, access, and risk legible in everyday design" } },
+    { icon: Radar, title: { "zh-TW": "洞察", "zh-CN": "洞察", en: "Insight" }, text: { "zh-TW": "不只收集數據，更幫助團隊理解訊號與下一個選擇", "zh-CN": "不只收集数据，更帮助团队理解讯号与下一个选择", en: "Go beyond collecting data to make signals and next choices understandable" } },
+    { icon: ArrowDownRight, title: { "zh-TW": "成長", "zh-CN": "成长", en: "Growth" }, text: { "zh-TW": "從一個可衡量的場景開始，隨著企業成熟而擴展系統", "zh-CN": "从一个可衡量的场景开始，随着企业成熟而扩展系统", en: "Start with one measurable scenario and expand as the business matures" } },
+  ];
+  return <>
+    <section className="principle-section home-topic" id="about">
+      <div className="container principle-grid">
+        <SignalRail />
+        <div className="principle-copy">
+          <Eyebrow index="01">{lang === "en" ? "About Eryndex" : lang === "zh-CN" ? "关于 Eryndex" : "關於 Eryndex"}</Eyebrow>
+          <h2>{lang === "en" ? "Technology should return attention to people" : "科技應該把注意力還給人"}</h2>
+          <p>{lang === "en" ? "We design systems that reduce noise without hiding the reasoning. The result is not more dashboards to maintain, but more room for teams to decide, create, and grow" : lang === "zh-CN" ? "我们设计能减少噪音、却不隐藏判断过程的系统。结果不是更多需要维护的仪表板，而是让团队拥有更多时间去决策、创造与成长" : "我們設計能減少噪音、卻不隱藏判斷過程的系統。結果不是更多需要維護的儀表板，而是讓團隊擁有更多時間去決策、創造與成長"}</p>
+          <p className="principle-supporting-copy">{lang === "en" ? "Eryndex brings automation, data security, and operational intelligence into one clear context for small and medium businesses" : lang === "zh-CN" ? "Eryndex 将自动化、数据安全与运营洞察放进同一个清晰脉络，为中小企业建立更好的工作系统" : "Eryndex 將自動化、資料安全與營運洞察放進同一個清晰脈絡，為中小企業建立更好的工作系統"}</p>
+          <HomeAnchor id="products" className="arrow-link">{lang === "en" ? "See the product system" : lang === "zh-CN" ? "查看产品系统" : "查看產品系統"}<ArrowRight size={16} /></HomeAnchor>
+        </div>
+        <div className="principle-mark" aria-hidden="true"><div className="mark-core"><img className="principle-brand-mark" src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></div><span className="principle-signal-dot dot-green" /><span className="principle-signal-dot dot-violet" /></div>
+      </div>
+    </section>
+    <section className="about-statement home-topic">
+      <div className="container statement-grid">
+        <div className="statement-big">{lang === "en" ? "Make room for the work that moves the business forward" : lang === "zh-CN" ? "为真正推动企业前进的工作，腾出空间" : "為真正推動企業前進的工作，騰出空間"}</div>
+        <div className="statement-side"><p>{lang === "en" ? "Every growing business carries invisible work: copying, checking, searching, reconciling. We turn that invisible layer into a system people can understand and improve" : lang === "zh-CN" ? "每个成长中的企业都有一层看不见的工作：复制、检查、搜索、核对。我们把这层隐形工作变成一套人们看得懂、也能持续改善的系统" : "每個成長中的企業都有一層看不見的工作：複製、檢查、搜尋、核對。我們把這層隱形工作變成一套人們看得懂、也能持續改善的系統"}</p></div>
+      </div>
+    </section>
+    <section className="values-section section-dark home-topic">
+      <div className="container">
+        <div className="section-heading"><Eyebrow index="02">{lang === "en" ? "The way we work" : lang === "zh-CN" ? "我们的工作方式" : "我們的工作方式"}</Eyebrow><h2>{lang === "en" ? <>Four principles. One <em>clearer</em> direction</> : lang === "zh-CN" ? <>四个原则，指向同一个<em>清晰</em>方向</> : <>四個原則，指向同一個<em>清晰</em>方向</>}</h2></div>
+        <div className="values-grid">{values.map((value) => { const Icon = value.icon; return <div className="value-cell" key={tx(value.title, lang)}><Icon size={24} strokeWidth={1.4} /><h3>{tx(value.title, lang)}</h3><p>{tx(value.text, lang)}</p></div>; })}</div>
+      </div>
+    </section>
+  </>;
+}
+
+function HomeResources() {
+  const { lang } = useSite();
+  const [openFaq, setOpenFaq] = useState(0);
+  return <>
+    <section className="resources-articles section-dark home-topic" id="resources">
+      <div className="container">
+        <div className="section-heading split-heading"><div><Eyebrow index="04">{lang === "en" ? "Resource center" : lang === "zh-CN" ? "资源中心" : "資源中心"}</Eyebrow><h2>{lang === "en" ? <>Make the next<br /><em>decision clearer</em></> : lang === "zh-CN" ? <>让下一个<br /><em>决定更清晰</em></> : <>讓下一個<br /><em>決定更清晰</em></>}</h2></div><span className="example-badge">EXAMPLE CONTENT / 非真实案例</span></div>
+        <p className="home-topic-intro">{lang === "en" ? "Clear perspectives on AI adoption, data governance, and operational improvement. All content below is currently an example and does not represent customer cases" : lang === "zh-CN" ? "把 AI 导入、数据治理与运营改善拆成容易理解的观点。以下内容目前均为示例文章，不代表真实客户案例" : "把 AI 導入、資料治理與營運改善拆成容易理解的觀點。以下內容目前皆為示範文章，不代表真實客戶案例"}</p>
+        <div className="articles-grid">{articleData.map((article) => <ArticleCard key={tx(article.title, lang)} article={article} />)}</div>
+      </div>
+    </section>
+    <section className="faq-section home-topic">
+      <div className="container faq-grid">
+        <div><Eyebrow>FAQ</Eyebrow><h2>{lang === "en" ? <>Questions before<br /><em>the first conversation</em></> : lang === "zh-CN" ? <>第一次对话前，<br /><em>你可能会问</em></> : <>第一次對話前，<br /><em>你可能會問</em></>}</h2><p>{lang === "en" ? "Still have a question? Bring it to the team" : lang === "zh-CN" ? "还有问题？欢迎带来和团队一起讨论" : "還有問題？歡迎帶來和團隊一起討論"}</p><Link href="/contact" className="arrow-link">{lang === "en" ? "Ask Eryndex" : lang === "zh-CN" ? "联系 Eryndex" : "聯絡 Eryndex"}<ArrowRight size={16} /></Link></div>
+        <div className="faq-list">{faqs.map((faq, index) => <div className={openFaq === index ? "faq-item open" : "faq-item"} key={tx(faq.q, lang)}><button onClick={() => setOpenFaq(openFaq === index ? -1 : index)} aria-expanded={openFaq === index}><span>{tx(faq.q, lang)}</span><ChevronDown size={19} /></button><div className="faq-answer"><p>{tx(faq.a, lang)}</p></div></div>)}</div>
+      </div>
+    </section>
+  </>;
+}
+
 export function Home() {
   const { lang } = useSite();
   return <>
@@ -191,13 +252,14 @@ export function Home() {
     <section className="hero-section">
       <div className="hero-grid-lines" aria-hidden="true" />
       <div className="container hero-layout">
-        <div className="hero-copy"><h1>{lang === "en" ? <>Make everyday work<br /><em>clearer and easier to move forward</em></> : lang === "zh-CN" ? <>让企业每天的工作<br /><em>更清晰，更容易前进</em></> : <>讓企業每天的工作<br /><em>更清楚、更容易前進</em></>}</h1><p className="hero-lede">{lang === "en" ? "Eryndex builds AI work systems for small and medium businesses, from workflow automation and data security to operational intelligence and on-site AI" : lang === "zh-CN" ? "Eryndex 为中小企业建立 AI 工作系统，从流程自动化、数据安全、运营洞察到企业内部 AI，协助团队处理分散、重复且需要判断的工作" : "Eryndex 為中小企業建立 AI 工作系統，從流程自動化、資料安全、營運洞察到企業內部 AI，協助團隊處理分散、重複且需要判斷的工作"}</p><div className="hero-actions"><PrimaryButton href="/contact">{lang === "en" ? "Talk to Eryndex about your needs" : lang === "zh-CN" ? "与 Eryndex 讨论需求" : "與 Eryndex 討論需求"}</PrimaryButton><SecondaryButton href="/products">{lang === "en" ? "Explore products" : lang === "zh-CN" ? "探索产品" : "探索產品"}</SecondaryButton></div></div>
+        <div className="hero-copy"><h1>{lang === "en" ? <>Make everyday work<br /><em>clearer and easier to move forward</em></> : lang === "zh-CN" ? <>让企业每天的工作<br /><em>更清晰，更容易前进</em></> : <>讓企業每天的工作<br /><em>更清楚、更容易前進</em></>}</h1><p className="hero-lede">{lang === "en" ? "Eryndex builds AI work systems for small and medium businesses, from workflow automation and data security to operational intelligence and on-site AI" : lang === "zh-CN" ? "Eryndex 为中小企业建立 AI 工作系统，从流程自动化、数据安全、运营洞察到企业内部 AI，协助团队处理分散、重复且需要判断的工作" : "Eryndex 為中小企業建立 AI 工作系統，從流程自動化、資料安全、營運洞察到企業內部 AI，協助團隊處理分散、重複且需要判斷的工作"}</p><div className="hero-actions"><PrimaryButton href="/contact">{lang === "en" ? "Talk to Eryndex about your needs" : lang === "zh-CN" ? "与 Eryndex 讨论需求" : "與 Eryndex 討論需求"}</PrimaryButton><SecondaryButton href={`${import.meta.env.BASE_URL}#products`}>{lang === "en" ? "Explore products" : lang === "zh-CN" ? "探索产品" : "探索產品"}</SecondaryButton></div></div>
         <div className="hero-art"><div className="hero-orbit orbit-a"><span className="hero-signal-dot dot-green" /></div><div className="hero-orbit orbit-b"><span className="hero-signal-dot dot-violet" /></div><img src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-ai-signal_4f3d1669.png" alt={lang === "en" ? "Abstract enterprise intelligence network with connected data signals" : lang === "zh-CN" ? "连接数据讯号的抽象企业智能网络" : "連結資料訊號的抽象企業智慧網路"} /><div className="hero-art-overlay" /><HeroConsole /></div>
       </div>
     </section>
-    <section className="product-intro section-dark" id="products"><div className="container"><div className="section-heading split-heading"><div><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>让工作<br /><em>流动得更清晰</em></> : <>讓工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div></section>
-    <section className="principle-section"><div className="container principle-grid"><SignalRail /><div className="principle-copy"><h2>{lang === "en" ? "Technology should return attention to people" : lang === "zh-CN" ? "科技應該把注意力還給人" : "科技應該把注意力還給人"}</h2><p>{lang === "en" ? "We design systems that reduce noise without hiding the reasoning. The result is not more dashboards to maintain, but more room for teams to decide, create, and grow" : lang === "zh-CN" ? "我们设计能减少噪音、却不隐藏判断过程的系统结果不是更多需要维护的仪表板，而是让团队拥有更多时间去决策、创造与成长" : "我們設計能減少噪音、卻不隱藏判斷過程的系統結果不是更多需要維護的儀表板，而是讓團隊擁有更多時間去決策、創造與成長"}</p><Link href="/about" className="arrow-link">{lang === "en" ? "See how we think" : lang === "zh-CN" ? "了解我们的想法" : "了解我們的想法"}<ArrowRight size={16} /></Link></div><div className="principle-mark" aria-hidden="true"><div className="mark-core"><img className="principle-brand-mark" src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></div><span className="principle-signal-dot dot-green" /><span className="principle-signal-dot dot-violet" /></div></div></section>
-    <section className="solutions-preview section-dark"><div className="container"><div className="section-heading split-heading"><div><h2>{lang === "en" ? <>A practical path<br /><em>into AI</em></> : lang === "zh-CN" ? <>一条务实的<br /><em>AI 之路</em></> : <>一條務實的<br /><em>AI 之路</em></>}</h2></div><Link href="/solutions" className="arrow-link">{lang === "en" ? "View solutions" : lang === "zh-CN" ? "查看解决方案" : "查看解決方案"}<ArrowUpRight size={16} /></Link></div><div className="solution-list">{solutions.map((solution) => { const Icon = solution.icon; return <Link href={`/products/${solution.product}`} className="solution-row" key={solution.id}><span className="solution-icon"><Icon size={20} strokeWidth={1.5} /></span><span className="solution-title">{tx(solution.title, lang)}</span><span className="solution-text">{tx(solution.text, lang)}</span><ArrowUpRight className="solution-arrow" size={18} /></Link>; })}</div></div></section>
+    <HomeAbout />
+    <section className="product-intro section-dark home-topic" id="products"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="03">{lang === "en" ? "Product system" : lang === "zh-CN" ? "产品系统" : "產品系統"}</Eyebrow><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>让工作<br /><em>流动得更清晰</em></> : <>讓工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div></section>
+    <section className="solutions-preview section-dark home-topic" id="solutions"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="05">{lang === "en" ? "Solutions" : lang === "zh-CN" ? "解决方案" : "解決方案"}</Eyebrow><h2>{lang === "en" ? <>A practical path<br /><em>into AI</em></> : lang === "zh-CN" ? <>一条务实的<br /><em>AI 之路</em></> : <>一條務實的<br /><em>AI 之路</em></>}</h2></div><HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor></div><div className="solution-list">{solutions.map((solution) => { const Icon = solution.icon; return <Link href={`/products/${solution.product}`} className="solution-row" key={solution.id}><span className="solution-icon"><Icon size={20} strokeWidth={1.5} /></span><span className="solution-title">{tx(solution.title, lang)}</span><span className="solution-text">{tx(solution.text, lang)}</span><ArrowUpRight className="solution-arrow" size={18} /></Link>; })}</div></div></section>
+    <HomeResources />
     <HomeCTA />
   </>;
 }
