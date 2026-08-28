@@ -52,60 +52,75 @@
 - [x] 推送 workflow 並等待部署完成。
 - [x] 驗證公開 github.io 網址、首頁資產與 modal 導覽。
 
-## 直接列印目前網站架構頁為 PDF
+## 第三版重新設計：工業控制台方向
 
-- [x] 將目前的 PDF 下載連結改為瀏覽器列印入口。
-- [x] 加入列印版樣式，隱藏導覽、關閉按鈕與非內容裝飾。
-- [x] 同步繁中、簡中與 English 的列印／另存 PDF 文案。
-- [x] 更新 README，說明 PDF 由瀏覽器直接列印產生。
-- [x] 完成 build、列印入口驗證並發布新版。
+- [ ] 排除 Tactile Grid 的紙面留白、細網格、座標與編輯型大標題。
+- [ ] 建立深色工業控制台、設備模組、狀態面板與垂直導覽語彙。
+- [ ] 重新設計第三版首頁、產品呈現、解決方案與製作說明介面。
+- [ ] 保留第一版 Signal Atelier 與第二版 Tactile Grid，不修改既有網址。
+- [ ] 生成第三版專用視覺資產並完成新網址部署。
 
-## 恢復網站風格 PDF 下載
+## 第一版公開版本恢復
 
-- [x] 盤點上一版 PDF 內容與目前網站 Signal Atelier 視覺規則。
-- [x] 依網站深色背景、青綠／紫色訊號與字體層級重製 PDF。
-- [x] 將製作說明頁按鈕恢復為三語 PDF 下載連結。
-- [x] 更新 PDF 靜態資產與 GitHub Pages 可用 URL。
-- [x] 驗證 PDF 視覺、下載連結、build 與 GitHub Pages 部署。
+- [x] 將 GitHub Pages 公開內容恢復為 checkpoint `c907e48e` 的深藍 Signal Atelier 版本。
+- [x] 確認第一版恢復不會修改第二版 Tactile Grid 與第三版 Industrial Control。
+- [x] 重新執行第一版部署並驗證公開網址的深藍背景、Signal Cyan、SVG 動態與 modal 架構。
 
-## 補充 grill-me Skill
+## 版本暫停決策
 
-- [x] 讀取 grill-me Skill 說明並確認適合的製作用途。
-- [x] 將 grill-me 補進三語網站 Skills 文案。
-- [x] 同步修改 Signal Atelier PDF 內容並重新上傳資產。
-- [x] 驗證網站、PDF、build 與 GitHub Pages 部署。
+- [ ] 暫停第二版 Tactile Grid：未獲使用者重新確認前，不修改、不重新部署。
+- [ ] 暫停第三版 Industrial Control：未獲使用者重新確認前，不修改、不重新部署。
+- [ ] 第一版 Signal Atelier 維持深藍 checkpoint `c907e48e`，不再修改。
 
-## GitHub Pages 404 診斷
+## 第一版訪客內容清理完成
 
-- [x] 查詢 repository 可見性、Pages API 設定與部署 URL。
-- [x] 檢查最新 workflow、artifact 與 deployment 狀態。
-- [x] 確認 github.io 網址與 repository owner／name 是否一致。
-- [x] 修正 Pages 設定或部署流程並重新觸發。
-- [x] 驗證首頁、製作說明 modal 路由與 PDF 下載連結。
+- [x] 移除 EDX 內部前綴與工程性標籤。
+- [x] 移除 SIGNAL READY、PRODUCT SIGNAL、即時統計、座標與版本日期等非必要內容。
+- [x] 移除產品視覺重複編號，保留唯一的產品順序標示。
+- [x] 同步更新 Plus Jakarta Sans 字體參考與 README。
+- [x] TypeScript、production build、GitHub Pages 部署與公開頁面驗證完成。
 
-## 第二視覺方案：明亮編輯型企業系統
+## 第一版訪客必要資訊優先清理
 
-- [x] 保留現有 Signal Atelier 版本並建立可辨識的新版設計決策紀錄。
-- [x] 完成第二套視覺提案，避免沿用深色科技／霓虹訊號語彙。
-- [x] 生成新版 Hero、品牌圖形與必要的高品質視覺資產。
-- [x] 重做首頁、產品卡片、解決方案、製作說明與共用元件視覺層。
-- [x] 維持三語、modal 導覽、產品專屬動畫、表單與 WCAG 實作。
-- [x] 驗證桌機／手機版、production build、GitHub Pages，並保存新版本 checkpoint。
+- [ ] 盤點並保留公司定位、產品名稱、產品用途、功能、適用對象、聯絡方式與必要 CTA。
+- [ ] 移除不影響訪客理解的裝飾標語、內部標籤、數字編號、模擬狀態、重複說明與製作紀錄文字。
+- [ ] 保留必要的示範內容聲明、表單錯誤提示、語言切換與 modal 關閉提示。
+- [ ] 完成三語、modal、表單、響應式與 GitHub Pages 驗證後再發布。
 
-## 字體與標題第二輪調整
+## 第一版標題標點清理
 
-- [x] 盤點現有 Google Fonts 載入與全站標題類別。
-- [x] 建立新的品牌字體搭配與標題視覺規則。
-- [x] 套用標題、內文、導航、按鈕與產品名稱的字體層級。
-- [x] 保持所有產品內容與三語文案不變。
-- [x] 驗證繁中、簡中、English 的換行與手機版顯示。
-- [x] 完成 build、GitHub Pages 部署與新版 checkpoint。
+- [ ] 移除主題、主標與區塊標題末尾不必要的句點。
+- [ ] 保留內文、表單提示與錯誤訊息的正常標點。
+- [ ] 驗證繁中、簡中、英文與 GitHub Pages 公開版本。
 
-## 新獨立網站專案
+## 第一版全站句點清理
 
-- [ ] 保留原本 Signal Atelier／既有網站與網址，不修改其穩定版本。
-- [ ] 建立新專案目錄與新的 GitHub repository／Pages 網址。
-- [ ] 只沿用 Eryndex 智序科技、Qadryn、Vessyra、Mireqon、Terviq 名稱。
-- [ ] 重新設計 Logo、字體、配色、內容架構、產品呈現、動效與製作說明。
-- [ ] 生成新站專用 Hero、品牌與產品視覺資產。
-- [ ] 驗證新舊網站彼此獨立，完成新網址部署與交付。
+- [ ] 盤點首頁、產品、解決方案、關於、資源、FAQ、聯絡與錯誤提示的所有可見句點。
+- [ ] 移除繁中／簡中 `。` 與英文句號 `.`，保留問號、逗號、冒號與必要符號。
+- [ ] 驗證三語文字、表單互動、modal 與 GitHub Pages 公開版本。
+
+## 第一版 Signal Ribbon Logo
+
+- [ ] 將使用者偏好的 C｜Signal Ribbon 套用到第一版頁首、頁尾與 favicon。
+- [ ] 確認淺色 Logo 在深藍背景上的對比、透明背景與手機尺寸辨識度。
+- [ ] 保持第一版內容與深藍 Signal Atelier 風格不變，第二版與第三版不修改。
+
+## 附件規格與本機確認流程
+
+- [ ] 以附件中的企業行銷定位、Signal／Flow／Structure 視覺哲學與產品敘事作為第一版後續調整依據。
+- [ ] 第一版修改只在本機預覽完成，未經使用者確認不得 push GitHub、觸發 Pages 或修改公開版本。
+- [ ] 第二版與第三版維持不變。
+- [ ] 提供本機預覽、桌面／手機檢查與變更摘要，等待使用者確認後再決定是否同步。
+
+## 本機預覽連結修正
+
+- [ ] 確認第一版本機開發服務仍在執行。
+- [ ] 建立可供使用者暫時查看的預覽入口，不推送 GitHub。
+- [ ] 驗證暫時入口顯示目前 Signal Ribbon 與附件規格修改。
+
+## 取代第二版公開內容
+
+- [ ] 備份第二版 Tactile Grid 的目前狀態與 Git 歷史，保留日後回復能力。
+- [ ] 將本機確認中的 Signal Atelier／Signal Ribbon 版本移植至第二版專案。
+- [ ] 在第二版本機完成型別、production build、桌面與手機驗證。
+- [ ] 確認第一版與第三版不受影響後，再同步第二版 GitHub Pages。

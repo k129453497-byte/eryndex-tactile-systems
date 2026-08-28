@@ -1,4 +1,4 @@
-// Eryndex Signal Atelier｜全站外框。固定導覽、資料流細線與清楚出口優先於裝飾，確保每一頁都能快速回到產品或聯絡入口。
+// Eryndex Signal Atelier｜全站外框固定導覽、資料流細線與清楚出口優先於裝飾，確保每一頁都能快速回到產品或聯絡入口
 import { useEffect, useState } from "react";
 import { Link, Route, Switch, Router as WouterRouter, useLocation } from "wouter";
 import { ArrowUpRight, Menu, X } from "lucide-react";
@@ -14,7 +14,6 @@ import {
   NotFoundPage,
   ProductDetailPage,
   ProductsPage,
-  ProductionPage,
   ResourcesPage,
   SolutionsPage,
 } from "./pages/Home";
@@ -25,8 +24,7 @@ const navCopy = {
   solutions: { "zh-TW": "解決方案", "zh-CN": "解决方案", en: "Solutions" },
   resources: { "zh-TW": "資源中心", "zh-CN": "资源中心", en: "Resources" },
   contact: { "zh-TW": "聯絡我們", "zh-CN": "联系我们", en: "Contact" },
-  demo: { "zh-TW": "預約產品展示", "zh-CN": "预约产品演示", en: "Book a demo" },
-  making: { "zh-TW": "網站架構", "zh-CN": "网站架构", en: "Site architecture" },
+  demo: { "zh-TW": "與 Eryndex 討論需求", "zh-CN": "与 Eryndex 讨论需求", en: "Talk to Eryndex about your needs" },
 };
 
 function Header() {
@@ -40,7 +38,7 @@ function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link href="/" className="brand" onClick={onNav} aria-label="Eryndex 智序科技 home">
-          <span className="brand-mark-wrap" aria-hidden="true"><img src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-tactile-grid-mark_49f87074.png" alt="" /></span>
+          <span className="brand-mark-wrap" aria-hidden="true"><img src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></span>
           <span className="brand-lockup"><strong>Eryndex</strong><small>智序科技</small></span>
         </Link>
         <button className="mobile-menu" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open}>
@@ -52,12 +50,12 @@ function Header() {
           <Link href="/solutions" className={isActive("/solutions") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.solutions[lang]}</Link>
           <Link href="/resources" className={isActive("/resources") ? "nav-link active" : "nav-link"} onClick={onNav}>{navCopy.resources[lang]}</Link>
           <div className="nav-divider" aria-hidden="true" />
+          <Link href="/contact" className="header-cta" onClick={onNav}>{navCopy.demo[lang]} <ArrowUpRight size={15} /></Link>
           <div className="language-switch" role="group" aria-label="Language selector">
             {(Object.keys(langNames) as Lang[]).map((option) => (
               <button key={option} className={lang === option ? "lang-option selected" : "lang-option"} onClick={() => setLang(option)} aria-pressed={lang === option}>{langNames[option]}</button>
             ))}
           </div>
-          <Link href="/making" className="header-cta" onClick={onNav}>{navCopy.making[lang]} <ArrowUpRight size={15} /></Link>
         </nav>
       </div>
       <div className="header-signal" aria-hidden="true"><span /><span /><span /></div>
@@ -72,17 +70,16 @@ function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand-col">
           <Link href="/" className="brand footer-brand">
-            <span className="brand-mark-wrap" aria-hidden="true"><img src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-tactile-grid-mark_49f87074.png" alt="" /></span>
+            <span className="brand-mark-wrap" aria-hidden="true"><img src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></span>
             <span className="brand-lockup"><strong>Eryndex</strong><small>智序科技</small></span>
           </Link>
-          <p>{lang === "zh-TW" ? "讓科技理解工作，讓企業專注成長。" : lang === "zh-CN" ? "让科技理解工作，让企业专注成长。" : "Let technology understand work, so businesses can focus on growth."}</p>
-          <div className="footer-status"><i /> {lang === "en" ? "Systems designed for the work ahead" : lang === "zh-CN" ? "为未来工作而设计的系统" : "為下一步工作而設計的系統"}</div>
+          <p>{lang === "zh-TW" ? "讓企業每天的工作，更清楚、更容易前進" : lang === "zh-CN" ? "让企业每天的工作，更清晰，更容易前进" : "Make everyday work clearer and easier to move forward"}</p>
         </div>
         <div className="footer-col"><p className="footer-label">{lang === "en" ? "Explore" : lang === "zh-CN" ? "探索" : "探索"}</p><Link href="/about">{navCopy.about[lang]}</Link><Link href="/products">{navCopy.products[lang]}</Link><Link href="/solutions">{navCopy.solutions[lang]}</Link><Link href="/resources">{navCopy.resources[lang]}</Link></div>
-        <div className="footer-col"><p className="footer-label">{lang === "en" ? "Connect" : lang === "zh-CN" ? "联系" : "聯絡"}</p><Link href="/contact">{navCopy.contact[lang]}</Link><a href="mailto:hello@eryndex.example">hello@eryndex.example</a><span>+886 2 7700 2840</span></div>
-        <div className="footer-col"><p className="footer-label">{lang === "en" ? "Notes" : lang === "zh-CN" ? "说明" : "說明"}</p><Link href="/making">{navCopy.making[lang]}</Link><span>{lang === "en" ? "Demo content only" : lang === "zh-CN" ? "仅供演示" : "僅供示範"}</span><span>© 2026 Eryndex</span></div>
+        <div className="footer-col"><p className="footer-label">{lang === "en" ? "Connect" : lang === "zh-CN" ? "联系" : "聯絡"}</p><Link href="/contact">{navCopy.contact[lang]}</Link><a href="mailto:contact@eryndex.com">contact@eryndex.com</a></div>
+        <div className="footer-col"><p className="footer-label">{lang === "en" ? "Location" : lang === "zh-CN" ? "所在地" : "所在地"}</p><span>{lang === "en" ? "Taiwan" : lang === "zh-CN" ? "台湾" : "台灣"}</span><span>© 2026 Eryndex</span></div>
       </div>
-      <div className="container footer-bottom"><span>台北 · Taipei</span><span>EDX / 2026.08</span></div>
+      <div className="container footer-bottom"><span>Taiwan</span></div>
     </footer>
   );
 }
@@ -97,7 +94,6 @@ function SiteRoutes() {
       <Route path="/solutions" component={SolutionsPage} />
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/contact" component={ContactPage} />
-      <Route path="/making" component={ProductionPage} />
       <Route path="/404" component={NotFoundPage} />
       <Route component={NotFoundPage} />
     </Switch>
@@ -135,10 +131,10 @@ function SiteShell() {
 export default function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="light">
+      <ThemeProvider defaultTheme="dark">
         <SiteProvider>
           <TooltipProvider>
-            <Toaster theme="light" position="bottom-right" />
+            <Toaster theme="dark" position="bottom-right" />
             <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}><SiteShell /></WouterRouter>
           </TooltipProvider>
         </SiteProvider>
