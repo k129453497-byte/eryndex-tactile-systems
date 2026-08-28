@@ -121,8 +121,8 @@ img { display: block; max-width: 100%; }
 .hero-image-frame .hero-art-overlay { position: absolute; z-index: 2; inset: 0; background: linear-gradient(90deg, rgba(7,17,31,.14), transparent 38%, rgba(7,17,31,.08)), linear-gradient(0deg, rgba(7,17,31,.15), transparent 35%, rgba(7,17,31,.1)); }
 .hero-art-overlay { position: absolute; z-index: 2; inset: 0; background: radial-gradient(ellipse at 54% 48%, transparent 24%, rgba(7,17,31,.2) 58%, var(--navy) 84%); }
 .hero-orbit { position: absolute; z-index: 2; border: 1px solid rgba(98,231,255,.18); border-radius: 50%; transform: rotate(-24deg); pointer-events: none; }
-.orbit-a { top: 84px; right: 35px; width: 520px; height: 230px; }
-.orbit-b { top: 145px; right: 160px; width: 350px; height: 420px; transform: rotate(58deg); border-color: rgba(163,139,255,.2); }
+.orbit-a { top: 14%; left: 28%; width: 66%; height: 42%; transform: rotate(-18deg); }
+.orbit-b { top: 9%; left: 34%; width: 47%; height: 78%; transform: rotate(58deg); border-color: rgba(163,139,255,.2); }
 .hero-coordinate { position: absolute; z-index: 3; top: 99px; right: -12px; color: #6c8b96; font: .56rem/1.5 "Inter", sans-serif; letter-spacing: .12em; text-align: right; }
 .hero-foot { position: relative; z-index: 3; display: flex; justify-content: space-between; margin-top: -10px; padding-top: 22px; border-top: 1px solid rgba(173, 221, 236, .15); color: #66828f; font: .62rem "Inter", sans-serif; letter-spacing: .15em; }
 .scroll-cue { display: flex; align-items: center; gap: 9px; letter-spacing: .06em; }.scroll-cue i { display: block; width: 20px; height: 1px; background: var(--cyan); }
@@ -728,10 +728,13 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 .hero-art { min-height: 570px; }
 @media (max-width: 1000px) {
   .hero-section { background-position: center, center, 62% center; }
+  .orbit-a { top: 14%; left: 24%; width: 72%; height: 40%; }
+  .orbit-b { top: 10%; left: 29%; width: 53%; height: 76%; }
 }
 @media (max-width: 720px) {
   .hero-section { background-image: linear-gradient(180deg, rgba(7,17,31,.96) 0%, rgba(7,17,31,.82) 46%, rgba(7,17,31,.48) 100%), url("https://files.manuscdn.com/user_upload_by_module/session_file/310519663923627772/okYRpvrSlQAxMEsw.png"); background-position: center, 66% center; background-size: cover, auto 100%; }
   .hero-art { min-height: 350px; }
+  .orbit-a, .orbit-b { display: none; }
 }
 
 /* Align the foreground signal with the artwork's luminous core and give it a calm operating pulse. */
