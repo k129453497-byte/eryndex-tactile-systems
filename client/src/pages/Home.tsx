@@ -192,7 +192,7 @@ function HomeCTA() {
 export function Home() {
   const { lang } = useSite();
   return <>
-    <Meta title="Eryndex 智序科技｜讓科技理解工作" description="Eryndex 智序科技為中小企業提供 AI 自動化、資料安全、營運洞察與企業內部 AI 工具。" />
+    <Meta title="Eryndex 智序科技｜讓看不見的工作顯形" description="Eryndex 智序科技為中小企業提供 AI 自動化、資料安全、營運洞察與企業內部 AI 工具。" />
     <section className="hero-section">
       <div className="hero-grid-lines" aria-hidden="true" />
       <div className="container hero-layout">

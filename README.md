@@ -29,7 +29,11 @@ React 19、TypeScript、Vite、Tailwind CSS 4、Wouter、Lucide React、CSS／SV
 
 原網站 repository：<https://github.com/k129453497-byte/eryndex-corporate-site>
 
-本新版本 repository：`eryndex-tactile-systems`。兩個版本會使用不同的 GitHub Pages URL；新版本的任何調整不會覆蓋原版本。
+本新版本 repository：<https://github.com/k129453497-byte/eryndex-tactile-systems>
+
+本新版本 GitHub Pages：<https://k129453497-byte.github.io/eryndex-tactile-systems/>
+
+兩個版本使用不同的 GitHub Pages URL；新版本的任何調整不會覆蓋原版本。
 
 ## Local development
 
