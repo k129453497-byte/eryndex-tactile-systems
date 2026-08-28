@@ -1,0 +1,111 @@
+# 主管版 Skills 能力全景
+
+- [x] 盤點品牌、命名、視覺、前端、內容、互動、無障礙、QA 與部署能力
+- [x] 設計豐富的主管導向 Skills 分類與具體產出說明
+- [x] 更新繁中、簡中、English 三語製作說明頁
+- [x] 補上能力分類卡、技術棧摘要與網站產出對照
+- [x] 驗證 modal、三語切換、手機版與 WCAG 2 說明可讀性
+- [x] 通過 production build 並保存新版 checkpoint
+
+## 本次參考來源區更新
+
+- [x] 盤點製作說明頁目前的參考來源區與三語文字。
+- [x] 排除使用者提供的截圖描述，不列為公開參考來源。
+- [x] 補齊公開字體、圖示、WCAG、框架、動畫規範、WebDev 規範、imagegen 工作流與 Signal Atelier 的用途說明。
+- [x] 加入「不代表合作、授權背書或商業關係」的透明聲明。
+- [x] 驗證三種語言、連結、桌機與手機版顯示。
+- [x] 完成 production build 並保存新版 checkpoint。
+
+## 網站架構 PDF 下載功能
+
+- [x] 確認 PDF 文件內容涵蓋品牌定位、網站架構、產品系統、動效、三語與 WCAG 範圍。
+- [x] 依 PDF 製作規範建立可供主管閱讀的三語文件。
+- [x] 將 PDF 上傳為 WebDev 靜態資產並取得永久 URL。
+- [x] 在製作說明頁加入三語下載按鈕與明確的下載提示。
+- [x] 驗證桌機／手機版按鈕與實際下載連結。
+- [x] 完成 production build 並保存新版 checkpoint。
+
+## GitHub 發布
+
+- [x] 檢查本地 Git 狀態、既有 remote 與 GitHub 帳號。
+- [x] 確認 PDF 產出與最新網站程式碼包含在發布內容中。
+- [x] 建立或確認 GitHub 私有儲存庫。
+- [x] 提交並推送最新專案版本。
+- [x] 驗證遠端分支、commit 與主要檔案。
+- [x] 回報 GitHub 儲存庫連結與發布狀態。
+
+## GitHub Pages 直接瀏覽
+
+- [x] 檢查 repository 名稱與 GitHub Pages 可用設定。
+- [x] 調整 Vite base path 與 GitHub Pages SPA fallback。
+- [x] 建立 GitHub Actions 靜態部署流程。
+- [x] 確認建置資產與 Manus 靜態資產在 GitHub Pages 的相容性。
+- [x] 推送部署設定並等待 Pages 建置完成。
+- [x] 驗證 github.io 直接瀏覽網址。
+
+## 公開 GitHub Pages 設定
+
+- [x] 將 GitHub repository 改為 public。
+- [x] 設定 GitHub Pages 建置來源與 Actions 權限。
+- [x] 讓 Vite 以 repository 子路徑產出資產 URL。
+- [x] 補上 GitHub Pages 的 SPA fallback 與必要靜態資產處理。
+- [x] 推送 workflow 並等待部署完成。
+- [x] 驗證公開 github.io 網址、首頁資產與 modal 導覽。
+
+## 直接列印目前網站架構頁為 PDF
+
+- [x] 將目前的 PDF 下載連結改為瀏覽器列印入口。
+- [x] 加入列印版樣式，隱藏導覽、關閉按鈕與非內容裝飾。
+- [x] 同步繁中、簡中與 English 的列印／另存 PDF 文案。
+- [x] 更新 README，說明 PDF 由瀏覽器直接列印產生。
+- [x] 完成 build、列印入口驗證並發布新版。
+
+## 恢復網站風格 PDF 下載
+
+- [x] 盤點上一版 PDF 內容與目前網站 Signal Atelier 視覺規則。
+- [x] 依網站深色背景、青綠／紫色訊號與字體層級重製 PDF。
+- [x] 將製作說明頁按鈕恢復為三語 PDF 下載連結。
+- [x] 更新 PDF 靜態資產與 GitHub Pages 可用 URL。
+- [x] 驗證 PDF 視覺、下載連結、build 與 GitHub Pages 部署。
+
+## 補充 grill-me Skill
+
+- [x] 讀取 grill-me Skill 說明並確認適合的製作用途。
+- [x] 將 grill-me 補進三語網站 Skills 文案。
+- [x] 同步修改 Signal Atelier PDF 內容並重新上傳資產。
+- [x] 驗證網站、PDF、build 與 GitHub Pages 部署。
+
+## GitHub Pages 404 診斷
+
+- [x] 查詢 repository 可見性、Pages API 設定與部署 URL。
+- [x] 檢查最新 workflow、artifact 與 deployment 狀態。
+- [x] 確認 github.io 網址與 repository owner／name 是否一致。
+- [x] 修正 Pages 設定或部署流程並重新觸發。
+- [x] 驗證首頁、製作說明 modal 路由與 PDF 下載連結。
+
+## 第二視覺方案：明亮編輯型企業系統
+
+- [x] 保留現有 Signal Atelier 版本並建立可辨識的新版設計決策紀錄。
+- [x] 完成第二套視覺提案，避免沿用深色科技／霓虹訊號語彙。
+- [x] 生成新版 Hero、品牌圖形與必要的高品質視覺資產。
+- [x] 重做首頁、產品卡片、解決方案、製作說明與共用元件視覺層。
+- [x] 維持三語、modal 導覽、產品專屬動畫、表單與 WCAG 實作。
+- [x] 驗證桌機／手機版、production build、GitHub Pages，並保存新版本 checkpoint。
+
+## 字體與標題第二輪調整
+
+- [x] 盤點現有 Google Fonts 載入與全站標題類別。
+- [x] 建立新的品牌字體搭配與標題視覺規則。
+- [x] 套用標題、內文、導航、按鈕與產品名稱的字體層級。
+- [x] 保持所有產品內容與三語文案不變。
+- [x] 驗證繁中、簡中、English 的換行與手機版顯示。
+- [x] 完成 build、GitHub Pages 部署與新版 checkpoint。
+
+## 新獨立網站專案
+
+- [ ] 保留原本 Signal Atelier／既有網站與網址，不修改其穩定版本。
+- [ ] 建立新專案目錄與新的 GitHub repository／Pages 網址。
+- [ ] 只沿用 Eryndex 智序科技、Qadryn、Vessyra、Mireqon、Terviq 名稱。
+- [ ] 重新設計 Logo、字體、配色、內容架構、產品呈現、動效與製作說明。
+- [ ] 生成新站專用 Hero、品牌與產品視覺資產。
+- [ ] 驗證新舊網站彼此獨立，完成新網址部署與交付。
