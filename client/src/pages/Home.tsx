@@ -105,6 +105,13 @@ const solutions = [
   { id: "edge", number: "04", icon: Cpu, title: { "zh-TW": "企業內部 AI 部署", "zh-CN": "企业内部 AI 部署", en: "On-site AI deployment" }, text: { "zh-TW": "讓敏感資料在需要被保護的環境裡運作，同時保留 AI 協作的彈性", "zh-CN": "让敏感数据在需要被保护的环境里运行，同时保留 AI 协作的灵活性", en: "Keep sensitive data in the environment that protects it while preserving the flexibility of AI collaboration" }, product: "terviq" },
 ] as const;
 
+const solutionModuleCopy = {
+  qadryn: { label: { "zh-TW": "流程流動", "zh-CN": "流程流动", en: "Flow" }, summary: { "zh-TW": "讓工作從清楚的路徑開始", "zh-CN": "让工作从清晰的路径开始", en: "Give work a clear path to move through" } },
+  vessyra: { label: { "zh-TW": "邊界清楚", "zh-CN": "边界清晰", en: "Boundaries" }, summary: { "zh-TW": "讓存取與協作都有可以理解的邊界", "zh-CN": "让访问与协作都有可以理解的边界", en: "Make access and collaboration easier to trust" } },
+  mireqon: { label: { "zh-TW": "脈絡形成", "zh-CN": "脉络形成", en: "Context" }, summary: { "zh-TW": "讓分散訊號成為團隊共享的脈絡", "zh-CN": "让分散讯号成为团队共享的脉络", en: "Turn scattered signals into shared context" } },
+  terviq: { label: { "zh-TW": "智慧靠近", "zh-CN": "智能靠近", en: "Intelligence" }, summary: { "zh-TW": "讓 AI 在資料需要被保護的地方運作", "zh-CN": "让 AI 在数据需要被保护的地方运行", en: "Let AI operate where your information needs protection" } },
+} as const;
+
 const articleData = [
   { tag: { "zh-TW": "趨勢觀察", "zh-CN": "趋势观察", en: "Trend note" }, title: { "zh-TW": "AI 導入不是換一個工具，而是重新理解工作流", "zh-CN": "AI 导入不是换一个工具，而是重新理解工作流", en: "Adopting AI starts with understanding the work, not adding another tool" }, read: { "zh-TW": "6 分鐘閱讀 · 範例文章", "zh-CN": "6 分钟阅读 · 示例文章", en: "6 min read · Example article" }, tone: "cyan" },
   { tag: { "zh-TW": "導入指南", "zh-CN": "导入指南", en: "Field guide" }, title: { "zh-TW": "中小企業建立第一個 AI 流程前，先問這五個問題", "zh-CN": "中小企业建立第一个 AI 流程前，先问这五个问题", en: "Five questions to ask before building your first AI workflow" }, read: { "zh-TW": "8 分鐘閱讀 · 範例文章", "zh-CN": "8 分钟阅读 · 示例文章", en: "8 min read · Example article" }, tone: "violet" },
@@ -237,7 +244,31 @@ export function Home() {
     </section>
     <HomeAbout />
     <section className="product-intro section-dark home-topic" id="products"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="03">{lang === "en" ? "Product system" : lang === "zh-CN" ? "产品系统" : "產品系統"}</Eyebrow><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>让工作<br /><em>流动得更清晰</em></> : <>讓工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div></section>
-    <section className="solutions-preview section-dark home-topic" id="solutions"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="05">{lang === "en" ? "Solutions" : lang === "zh-CN" ? "解决方案" : "解決方案"}</Eyebrow><h2>{lang === "en" ? <>A practical path<br /><em>into AI</em></> : lang === "zh-CN" ? <>一条务实的<br /><em>AI 之路</em></> : <>一條務實的<br /><em>AI 之路</em></>}</h2></div><HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor></div><div className="solution-list">{solutions.map((solution) => { const product = products.find((item) => item.slug === solution.product)!; return <Link href={`/products/${solution.product}`} className="solution-row" key={solution.id}><span className="solution-icon"><ProductVisual product={product} compact /></span><span className="solution-title">{tx(solution.title, lang)}</span><span className="solution-text">{tx(solution.text, lang)}</span><ArrowUpRight className="solution-arrow" size={18} /></Link>; })}</div></div></section>
+    <section className="solutions-preview section-dark home-topic" id="solutions">
+      <div className="container">
+        <div className="section-heading split-heading">
+          <div>
+            <Eyebrow index="05">{lang === "en" ? "Solutions" : lang === "zh-CN" ? "解决方案" : "解決方案"}</Eyebrow>
+            <h2>{lang === "en" ? <>Independent as modules.<br /><em>Connected as a system.</em></> : lang === "zh-CN" ? <>独立成为模块，<br /><em>组合成为系统</em></> : <>獨立成為模組，<br /><em>組合成為系統</em></>}</h2>
+            <p className="solution-system-intro">{lang === "en" ? "Four AI work modules with distinct roles. Start with one, then connect the pieces as your work becomes clearer" : lang === "zh-CN" ? "四个各自有清晰角色的 AI 工作模块。可以从一个开始，再随着工作脉络逐步连接" : "四個各自有清楚角色的 AI 工作模組。可以從一個開始，再隨著工作脈絡逐步連接"}</p>
+          </div>
+          <HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor>
+        </div>
+        <div className="solution-module-grid" aria-label={lang === "en" ? "Four Eryndex product modules" : lang === "zh-CN" ? "Eryndex 四个产品模块" : "Eryndex 四個產品模組"}>
+          {products.map((product) => {
+            const Icon = product.icon;
+            const module = solutionModuleCopy[product.slug];
+            return <Link href={`/products/${product.slug}`} className={`solution-module tone-${product.tone}`} key={product.slug}>
+              <div className="solution-module-meta"><span>{product.number}</span><span>MODULE</span></div>
+              <div className={`solution-module-icon solution-product-fallback tone-${product.tone}`} aria-hidden="true"><div className="solution-icon-orbit orbit-primary" /><div className="solution-icon-orbit orbit-secondary" /><div className="solution-icon-core"><Icon size={26} strokeWidth={1.25} /></div></div>
+              <div className="solution-module-copy"><p className="solution-module-label">{tx(module.label, lang)}</p><h3>{tx(product.name, lang)}</h3><p>{tx(module.summary, lang)}</p></div>
+              <span className="solution-module-link">{lang === "en" ? "View module" : lang === "zh-CN" ? "查看模块" : "查看模組"}<ArrowUpRight size={15} /></span>
+            </Link>;
+          })}
+        </div>
+        <p className="solution-composition-note">{lang === "en" ? "Use one module on its own. Connect the next one when the business is ready." : lang === "zh-CN" ? "可以单独使用一个模块，也可以在企业准备好时连接下一个模块。" : "可以單獨使用一個模組，也可以在企業準備好時連接下一個模組。"}</p>
+      </div>
+    </section>
     <HomeResources />
   </>;
 }

@@ -598,3 +598,50 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   .solution-signal-icon .visual-mireqon .dashboard-readouts rect,
   .solution-signal-icon .visual-terviq .cpu-trace { animation: none !important; }
 }
+
+
+/* Modular solution system｜四個產品以可獨立、可連接的技術積木呈現。 */
+.solution-system-intro { max-width: 520px; margin: 27px 0 0; color: #8ca7b4; font-size: .96rem; line-height: 1.8; }
+.solution-module-grid { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 17px; }
+.solution-module-grid::before { content: ""; position: absolute; z-index: 0; top: 50%; right: 7%; left: 7%; height: 1px; background: linear-gradient(90deg, transparent, rgba(98,231,255,.45) 12%, rgba(98,231,255,.2) 88%, transparent); pointer-events: none; }
+.solution-module { position: relative; z-index: 1; display: flex; min-width: 0; min-height: 344px; flex-direction: column; padding: 18px 18px 20px; overflow: hidden; border: 1px solid rgba(173,221,236,.2); background: linear-gradient(145deg, rgba(17,47,67,.92), rgba(8,22,37,.98)); transition: transform 240ms var(--ease-out), border-color 240ms var(--ease-out), background 240ms var(--ease-out); }
+.solution-module::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(98,231,255,.1), transparent 43%); opacity: .5; pointer-events: none; }
+.solution-module::after { content: ""; position: absolute; top: 50%; right: -15px; width: 15px; height: 1px; background: rgba(98,231,255,.45); box-shadow: 0 0 9px rgba(98,231,255,.35); }
+.solution-module:last-child::after { display: none; }
+.solution-module:hover { border-color: rgba(98,231,255,.72); background: linear-gradient(145deg, rgba(21,64,83,.98), rgba(8,22,37,.98)); transform: translateY(-7px); }
+.solution-module-meta { position: relative; z-index: 2; display: flex; justify-content: space-between; color: #6d8996; font: .57rem "Plus Jakarta Sans", sans-serif; letter-spacing: .14em; }
+.solution-module-icon { position: relative; z-index: 2; display: block; width: 142px; height: 142px; flex: 0 0 auto; margin: 28px auto 22px; overflow: hidden; border: 1px solid rgba(98,231,255,.34); }
+.solution-module-icon::after { content: ""; position: absolute; z-index: 4; top: 50%; left: -10px; width: 20px; height: 1px; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+.solution-module-icon .solution-icon-orbit { width: 116px; height: 116px; }
+.solution-module-icon .solution-icon-orbit.orbit-secondary { width: 92px; height: 92px; }
+.solution-module-icon .solution-icon-core { width: 58px; height: 58px; }
+.solution-module-icon .solution-icon-core svg { width: 27px; height: 27px; }
+.solution-module-copy { position: relative; z-index: 2; }
+.solution-module-label { margin: 0 0 8px; color: var(--cyan); font: .62rem "Plus Jakarta Sans", "Noto Sans TC", sans-serif; letter-spacing: .12em; }
+.solution-module-copy h3 { margin: 0 0 11px; color: #edf9fb; font: 600 1.35rem/1.1 var(--font-display); letter-spacing: -.035em; }
+.solution-module-copy > p:last-child { margin: 0; color: #91aab5; font-size: .8rem; line-height: 1.72; }
+.solution-module-link { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 20px; color: var(--cyan); font: .7rem var(--font-ui); }
+.solution-module-link svg { transition: transform 180ms var(--ease-out); }
+.solution-module:hover .solution-module-link svg { transform: translate(3px, -3px); }
+.solution-module.tone-mint { border-color: rgba(105,230,193,.28); }.solution-module.tone-mint:hover { border-color: rgba(105,230,193,.72); }.solution-module.tone-mint .solution-module-label, .solution-module.tone-mint .solution-module-link { color: var(--mint); }
+.solution-module.tone-violet { border-color: rgba(163,139,255,.3); }.solution-module.tone-violet:hover { border-color: rgba(163,139,255,.72); }.solution-module.tone-violet .solution-module-label, .solution-module.tone-violet .solution-module-link { color: var(--violet); }
+.solution-composition-note { position: relative; z-index: 1; max-width: 680px; margin: 28px auto 0; color: #6e8b97; font-size: .76rem; line-height: 1.7; text-align: center; }
+@media (max-width: 1050px) { .solution-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.solution-module-grid::before { display: none; }.solution-module:nth-child(2)::after { display: none; } }
+@media (max-width: 720px) {
+  .solution-system-intro { margin-top: 22px; font-size: .88rem; }
+  .solution-module-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 4px; }
+  .solution-module { display: grid; grid-template-columns: 82px minmax(0, 1fr); grid-template-rows: auto 1fr auto; gap: 8px 16px; min-height: 178px; padding: 16px; }
+  .solution-module::after, .solution-module-icon::after { display: none; }
+  .solution-module-meta { grid-column: 2; grid-row: 1; }
+  .solution-module-icon { grid-column: 1; grid-row: 1 / span 3; align-self: center; width: 78px; height: 78px; margin: 0; }
+  .solution-module-icon .solution-icon-orbit { width: 66px; height: 66px; }
+  .solution-module-icon .solution-icon-orbit.orbit-secondary { width: 52px; height: 52px; }
+  .solution-module-icon .solution-icon-core { width: 38px; height: 38px; }
+  .solution-module-icon .solution-icon-core svg { width: 19px; height: 19px; }
+  .solution-module-copy { grid-column: 2; grid-row: 2; align-self: center; }
+  .solution-module-copy h3 { margin-bottom: 7px; font-size: 1.18rem; }
+  .solution-module-copy > p:last-child { font-size: .76rem; }
+  .solution-module-link { grid-column: 2; grid-row: 3; margin-top: 0; padding-top: 5px; font-size: .65rem; }
+  .solution-composition-note { margin-top: 21px; font-size: .7rem; }
+}
+@media (prefers-reduced-motion: reduce) { .solution-module { transition: border-color 240ms ease, background 240ms ease; }.solution-module:hover { transform: none; } }
