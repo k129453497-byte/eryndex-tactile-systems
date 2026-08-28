@@ -695,3 +695,19 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   .hero-copy h1 { line-height: 1.18; letter-spacing: .008em; }
   .principle-copy h2 { line-height: 1.3; letter-spacing: .012em; }
 }
+
+/* Typography refinement: reduce headline dominance while preserving the tactile brand voice. */
+@media (min-width: 1001px) {
+  .hero-copy h1 { font-size: clamp(3rem, 5.4vw, 5.5rem); }
+  .section-heading h2, .principle-copy h2, .about-practice h2, .detail-sticky h2, .contact-aside h2, .form-heading h2, .making-lede h2, .references-grid h2 { font-size: clamp(2.25rem, 4vw, 3.75rem); }
+  .page-header h1 { font-size: clamp(3rem, 5.2vw, 5.2rem); }
+  .detail-copy h1 { font-size: clamp(3rem, 4.5vw, 5.2rem); }
+  .detail-copy h2 { font-size: clamp(1.3rem, 2vw, 1.9rem); }
+}
+
+@media (max-width: 720px) {
+  .hero-copy h1, .page-header h1 { font-size: clamp(3rem, 13vw, 4.3rem); }
+  .section-heading h2, .principle-copy h2, .about-practice h2, .detail-sticky h2, .contact-aside h2, .making-lede h2, .references-grid h2 { font-size: clamp(2.1rem, 9.2vw, 3.2rem); }
+  .detail-copy h1 { font-size: clamp(3rem, 13vw, 4.3rem); }
+  .detail-copy h2 { font-size: 1.3rem; }
+}
