@@ -711,3 +711,8 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   .detail-copy h1 { font-size: clamp(3rem, 13vw, 4.3rem); }
   .detail-copy h2 { font-size: 1.3rem; }
 }
+
+/* Final hero scale: keep the headline prominent without letting it dominate the desktop fold. */
+@media (min-width: 1001px) {
+  .hero-copy h1 { font-size: clamp(2.8rem, 4.2vw, 4.25rem); line-height: 1.08; }
+}
