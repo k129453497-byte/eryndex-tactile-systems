@@ -204,8 +204,7 @@ function HomeAbout() {
         </div>
         <div className="principle-mark" aria-hidden="true"><div className="mark-core"><img className="principle-brand-mark" src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></div><span className="principle-signal-dot dot-green" /><span className="principle-signal-dot dot-violet" /></div>
       </div>
-    <div className="about-values">
-      <div className="section-heading about-values-heading"><Eyebrow index="02">{lang === "en" ? "The way we work" : lang === "zh-CN" ? "我们的工作方式" : "我們的工作方式"}</Eyebrow><h2>{lang === "en" ? <>Four principles. One <em>clearer</em> direction</> : lang === "zh-CN" ? <>四个原则，指向同一个<em>清晰</em>方向</> : <>四個原則，指向同一個<em>清晰</em>方向</>}</h2></div>
+    <div className="about-values container" aria-label={lang === "en" ? "How we work" : lang === "zh-CN" ? "我们的工作方式" : "我們的工作方式"}>
       <div className="values-grid">{values.map((value) => { const Icon = value.icon; return <div className="value-cell" key={tx(value.title, lang)}><Icon size={24} strokeWidth={1.4} /><h3>{tx(value.title, lang)}</h3><p>{tx(value.text, lang)}</p></div>; })}</div>
     </div>
     </section>
