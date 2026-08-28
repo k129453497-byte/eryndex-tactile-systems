@@ -205,12 +205,6 @@ function HomeAbout() {
         <div className="principle-mark" aria-hidden="true"><div className="mark-core"><img className="principle-brand-mark" src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></div><span className="principle-signal-dot dot-green" /><span className="principle-signal-dot dot-violet" /></div>
       </div>
     </section>
-    <section className="about-statement home-topic">
-      <div className="container statement-grid">
-        <div className="statement-big">{lang === "en" ? "Make room for the work that moves the business forward" : lang === "zh-CN" ? "为真正推动企业前进的工作，腾出空间" : "為真正推動企業前進的工作，騰出空間"}</div>
-        <div className="statement-side"><p>{lang === "en" ? "Every growing business carries invisible work: copying, checking, searching, reconciling. We turn that invisible layer into a system people can understand and improve" : lang === "zh-CN" ? "每个成长中的企业都有一层看不见的工作：复制、检查、搜索、核对。我们把这层隐形工作变成一套人们看得懂、也能持续改善的系统" : "每個成長中的企業都有一層看不見的工作：複製、檢查、搜尋、核對。我們把這層隱形工作變成一套人們看得懂、也能持續改善的系統"}</p></div>
-      </div>
-    </section>
     <section className="values-section section-dark home-topic">
       <div className="container">
         <div className="section-heading"><Eyebrow index="02">{lang === "en" ? "The way we work" : lang === "zh-CN" ? "我们的工作方式" : "我們的工作方式"}</Eyebrow><h2>{lang === "en" ? <>Four principles. One <em>clearer</em> direction</> : lang === "zh-CN" ? <>四个原则，指向同一个<em>清晰</em>方向</> : <>四個原則，指向同一個<em>清晰</em>方向</>}</h2></div>
@@ -222,19 +216,12 @@ function HomeAbout() {
 
 function HomeResources() {
   const { lang } = useSite();
-  const [openFaq, setOpenFaq] = useState(0);
   return <>
     <section className="resources-articles section-dark home-topic" id="resources">
       <div className="container">
         <div className="section-heading split-heading"><div><Eyebrow index="04">{lang === "en" ? "Resource center" : lang === "zh-CN" ? "资源中心" : "資源中心"}</Eyebrow><h2>{lang === "en" ? <>Make the next<br /><em>decision clearer</em></> : lang === "zh-CN" ? <>让下一个<br /><em>决定更清晰</em></> : <>讓下一個<br /><em>決定更清晰</em></>}</h2></div><span className="example-badge">EXAMPLE CONTENT / 非真实案例</span></div>
         <p className="home-topic-intro">{lang === "en" ? "Clear perspectives on AI adoption, data governance, and operational improvement. All content below is currently an example and does not represent customer cases" : lang === "zh-CN" ? "把 AI 导入、数据治理与运营改善拆成容易理解的观点。以下内容目前均为示例文章，不代表真实客户案例" : "把 AI 導入、資料治理與營運改善拆成容易理解的觀點。以下內容目前皆為示範文章，不代表真實客戶案例"}</p>
         <div className="articles-grid">{articleData.map((article) => <ArticleCard key={tx(article.title, lang)} article={article} />)}</div>
-      </div>
-    </section>
-    <section className="faq-section home-topic">
-      <div className="container faq-grid">
-        <div><Eyebrow>FAQ</Eyebrow><h2>{lang === "en" ? <>Questions before<br /><em>the first conversation</em></> : lang === "zh-CN" ? <>第一次对话前，<br /><em>你可能会问</em></> : <>第一次對話前，<br /><em>你可能會問</em></>}</h2><p>{lang === "en" ? "Still have a question? Bring it to the team" : lang === "zh-CN" ? "还有问题？欢迎带来和团队一起讨论" : "還有問題？歡迎帶來和團隊一起討論"}</p><Link href="/contact" className="arrow-link">{lang === "en" ? "Ask Eryndex" : lang === "zh-CN" ? "联系 Eryndex" : "聯絡 Eryndex"}<ArrowRight size={16} /></Link></div>
-        <div className="faq-list">{faqs.map((faq, index) => <div className={openFaq === index ? "faq-item open" : "faq-item"} key={tx(faq.q, lang)}><button onClick={() => setOpenFaq(openFaq === index ? -1 : index)} aria-expanded={openFaq === index}><span>{tx(faq.q, lang)}</span><ChevronDown size={19} /></button><div className="faq-answer"><p>{tx(faq.a, lang)}</p></div></div>)}</div>
       </div>
     </section>
   </>;
@@ -255,7 +242,6 @@ export function Home() {
     <section className="product-intro section-dark home-topic" id="products"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="03">{lang === "en" ? "Product system" : lang === "zh-CN" ? "产品系统" : "產品系統"}</Eyebrow><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>让工作<br /><em>流动得更清晰</em></> : <>讓工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div></section>
     <section className="solutions-preview section-dark home-topic" id="solutions"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="05">{lang === "en" ? "Solutions" : lang === "zh-CN" ? "解决方案" : "解決方案"}</Eyebrow><h2>{lang === "en" ? <>A practical path<br /><em>into AI</em></> : lang === "zh-CN" ? <>一条务实的<br /><em>AI 之路</em></> : <>一條務實的<br /><em>AI 之路</em></>}</h2></div><HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor></div><div className="solution-list">{solutions.map((solution) => { const product = products.find((item) => item.slug === solution.product)!; return <Link href={`/products/${solution.product}`} className="solution-row" key={solution.id}><span className="solution-icon"><ProductVisual product={product} compact /></span><span className="solution-title">{tx(solution.title, lang)}</span><span className="solution-text">{tx(solution.text, lang)}</span><ArrowUpRight className="solution-arrow" size={18} /></Link>; })}</div></div></section>
     <HomeResources />
-    <HomeCTA />
   </>;
 }
 
