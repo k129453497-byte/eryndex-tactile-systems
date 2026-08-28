@@ -739,8 +739,8 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 
 /* Align the foreground signal with the artwork's luminous core and give it a calm operating pulse. */
 .hero-art::after {
-  top: 34%;
-  left: 43%;
+  top: 38%;
+  left: 39%;
   width: 12px;
   height: 12px;
   animation: hero-core-flicker 2.8s ease-in-out infinite;
