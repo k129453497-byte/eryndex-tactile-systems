@@ -316,7 +316,7 @@ export function SolutionsPage() {
 
 function ArticleCard({ article }: { article: (typeof articleData)[number] }) {
   const { lang } = useSite();
-  return <article className={`article-card tone-${article.tone}`}><div className="article-art"><div className="article-lines" /><span>RESOURCE / 2026</span></div><div className="article-copy"><p className="card-category">{tx(article.tag, lang)}</p><h3>{tx(article.title, lang)}</h3><p className="article-read">{lang === "en" ? "Practical resource · Example" : lang === "zh-CN" ? "实用资源 · 示例内容" : "實用資源 · 示範內容"}</p><span className="text-link">{lang === "en" ? "View resource" : lang === "zh-CN" ? "查看资源" : "查看資源"}<ArrowUpRight size={15} /></span></div></article>;
+  return <article className={`article-card tone-${article.tone}`}><div className="article-art"><div className="article-lines" /><span>RESOURCE / 2026</span></div><div className="article-copy"><p className="card-category">{tx(article.tag, lang)}</p><h3>{tx(article.title, lang)}</h3><p className="article-read">{lang === "en" ? "Practical resource · Example" : lang === "zh-CN" ? "实用资源 · 示例内容" : "實用資源 · 示範內容"}</p></div></article>;
 }
 
 export function ResourcesPage() {
