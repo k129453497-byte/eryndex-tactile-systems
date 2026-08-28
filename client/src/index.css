@@ -645,3 +645,31 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   .solution-composition-note { margin-top: 21px; font-size: .7rem; }
 }
 @media (prefers-reduced-motion: reduce) { .solution-module { transition: border-color 240ms ease, background 240ms ease; }.solution-module:hover { transform: none; } }
+
+
+/* Interlocking product blocks｜讓四個產品形成一個可拆解、可重組的系統結構。 */
+.solution-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 34px; padding: 1px; }
+.solution-module-grid::before { content: ""; position: absolute; z-index: 4; top: 50%; left: 50%; display: block; width: 30px; height: 30px; border: 1px solid rgba(98,231,255,.78); background: #0b1b2d; box-shadow: 0 0 0 7px rgba(98,231,255,.06), 0 0 22px rgba(98,231,255,.28); transform: translate(-50%, -50%) rotate(45deg); pointer-events: none; }
+.solution-module { min-height: 330px; margin: -.5px; border-color: rgba(173,221,236,.34); box-shadow: inset 0 0 0 1px rgba(7,17,31,.52), 0 12px 26px rgba(2,9,18,.12); }
+.solution-module:nth-child(1) { border-top-left-radius: 2px; }
+.solution-module:nth-child(2) { border-top-right-radius: 2px; }
+.solution-module:nth-child(3) { border-bottom-left-radius: 2px; }
+.solution-module:nth-child(4) { border-bottom-right-radius: 2px; }
+.solution-module::after { content: ""; position: absolute; z-index: 5; top: 50%; right: -12px; width: 22px; height: 22px; border: 1px solid rgba(98,231,255,.64); border-radius: 50%; background: #0b1b2d; box-shadow: 0 0 13px rgba(98,231,255,.18); transform: translateY(-50%); }
+.solution-module:nth-child(2)::after { right: auto; left: -12px; }
+.solution-module:nth-child(3)::after, .solution-module:nth-child(4)::after { top: -12px; right: auto; left: 50%; transform: translateX(-50%); }
+.solution-module:nth-child(1)::before, .solution-module:nth-child(2)::before, .solution-module:nth-child(3)::before, .solution-module:nth-child(4)::before { opacity: .62; }
+.solution-module:hover { z-index: 6; transform: translateY(-3px); box-shadow: inset 0 0 0 1px rgba(7,17,31,.52), 0 16px 32px rgba(2,9,18,.24); }
+@media (max-width: 1050px) {
+  .solution-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .solution-module-grid::before { display: block; }
+  .solution-module:nth-child(2)::after { display: block; }
+}
+@media (max-width: 720px) {
+  .solution-module-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 4px; padding: 0; }
+  .solution-module-grid::before { display: none; }
+  .solution-module { min-height: 178px; margin: 0; border-radius: 0; box-shadow: inset 0 0 0 1px rgba(7,17,31,.52), 0 8px 18px rgba(2,9,18,.12); }
+  .solution-module::after, .solution-module:nth-child(2)::after, .solution-module:nth-child(3)::after, .solution-module:nth-child(4)::after { display: none; }
+  .solution-module:hover { transform: translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce) { .solution-module:hover { transform: none; } }
