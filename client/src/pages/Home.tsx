@@ -259,7 +259,6 @@ export function Home() {
             const Icon = product.icon;
             const module = solutionModuleCopy[product.slug];
             return <Link href={`/products/${product.slug}`} className={`solution-module tone-${product.tone}`} key={product.slug}>
-              <div className="solution-module-meta"><span>{product.number}</span><span>MODULE</span></div>
               <div className={`solution-module-icon solution-product-fallback tone-${product.tone}`} aria-hidden="true"><div className="solution-icon-orbit orbit-primary" /><div className="solution-icon-orbit orbit-secondary" /><div className="solution-icon-core"><Icon size={26} strokeWidth={1.25} /></div></div>
               <div className="solution-module-copy"><p className="solution-module-label">{tx(module.label, lang)}</p><h3>{tx(product.name, lang)}</h3><p>{tx(module.summary, lang)}</p></div>
               <span className="solution-module-link">{lang === "en" ? "View module" : lang === "zh-CN" ? "查看模块" : "查看模組"}<ArrowUpRight size={15} /></span>
