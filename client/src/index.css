@@ -57,6 +57,8 @@
   --line: rgba(170, 218, 232, 0.16);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --font-heading: "Inter", "Noto Sans TC", "Noto Sans SC", sans-serif;
+  --font-body: "Noto Sans TC", "Noto Sans SC", "Inter", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -749,4 +751,20 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   0%, 100% { opacity: .58; transform: scale(.82); box-shadow: 0 0 0 5px rgba(98,231,255,.06), 0 0 18px rgba(98,231,255,.62); }
   45% { opacity: 1; transform: scale(1.18); box-shadow: 0 0 0 10px rgba(98,231,255,.12), 0 0 42px rgba(98,231,255,.98); }
   62% { opacity: .72; transform: scale(.92); box-shadow: 0 0 0 7px rgba(98,231,255,.08), 0 0 25px rgba(98,231,255,.75); }
+}
+
+/* Type system｜標題與內文分工明確，三種語系沿用同一套角色規則。 */
+body, button, input, select, textarea,
+.nav-link, .header-cta, .lang-option, .hero-lede, .hero-note,
+.split-heading > p, .product-card-content > p, .solution-text,
+.page-intro, .article-read, .faq-answer p, .contact-form,
+.contact-aside > p, .references-intro, .reference-note p {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6,
+.brand-lockup strong, .eyebrow, .card-category,
+.solution-title, .product-card h3, .article-card h3,
+.section-heading h2, .page-header h1, .cta-inner h2 {
+  font-family: var(--font-heading);
 }
