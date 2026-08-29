@@ -57,7 +57,7 @@
   --line: rgba(170, 218, 232, 0.16);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  --font-heading: "Inter", "Noto Sans TC", sans-serif;
+  --font-heading: "Huninn", "Noto Sans TC", sans-serif;
   --font-body: "Noto Sans TC", sans-serif;
 }
 
@@ -565,7 +565,7 @@ body.modal-open { overflow: hidden; }
 /* Signal Atelier typography refinement｜參考現代 B2B 科技產品網站：中性無襯線、清楚層級、較寬鬆內文與克制的負字距；保留深藍與 Signal Cyan，不新增裝飾性字樣。 */
 :root {
   --font-ui: "Inter", "Noto Sans TC", "Noto Sans SC", sans-serif;
-  --font-display: "Inter", "Noto Sans TC", "Noto Sans SC", sans-serif;
+  --font-display: "Huninn", "Noto Sans TC", "Noto Sans SC", sans-serif;
 }
 html, body, button, input, select, textarea { font-family: var(--font-ui); }
 .hero-copy h1, .page-header h1, .section-heading h2, .principle-copy h2, .about-practice h2, .detail-sticky h2, .contact-aside h2, .form-heading h2, .making-lede h2, .references-grid h2, .not-found h1, .cta-inner h2 {
