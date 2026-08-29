@@ -766,5 +766,5 @@ h1, h2, h3, h4, h5, h6,
 .brand-lockup strong, .eyebrow, .card-category,
 .solution-title, .product-card h3, .article-card h3,
 .section-heading h2, .page-header h1, .cta-inner h2 {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading) !important;
 }
