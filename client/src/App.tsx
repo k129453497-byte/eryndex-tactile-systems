@@ -1,5 +1,5 @@
 // Eryndex Signal Atelier｜全站外框固定導覽、資料流細線與清楚出口優先於裝飾，確保每一頁都能快速回到產品或聯絡入口
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Route, Switch, Router as WouterRouter, useLocation } from "wouter";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
@@ -106,6 +106,18 @@ function SiteShell() {
   const [location, navigate] = useLocation();
   const { lang } = useSite();
   const isOverlay = location !== "/";
+  const returnScrollY = useRef(0);
+
+  useEffect(() => {
+    if (isOverlay) {
+      returnScrollY.current = window.scrollY;
+      return;
+    }
+
+    if (returnScrollY.current <= 0) return;
+    const scrollY = returnScrollY.current;
+    requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: "auto" }));
+  }, [isOverlay]);
 
   useEffect(() => {
     if (!isOverlay) return;
