@@ -109,8 +109,23 @@ function SiteShell() {
   const returnScrollY = useRef(0);
 
   useEffect(() => {
+    const rememberScrollBeforeOverlay = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const link = target?.closest("a[href]") as HTMLAnchorElement | null;
+      if (!link || link.target === "_blank") return;
+      const href = link.getAttribute("href") || "";
+      if (href.startsWith("/") && !href.startsWith("/#") && href !== "/") {
+        returnScrollY.current = window.scrollY;
+      }
+    };
+
+    document.addEventListener("click", rememberScrollBeforeOverlay, true);
+    return () => document.removeEventListener("click", rememberScrollBeforeOverlay, true);
+  }, []);
+
+  useEffect(() => {
     if (isOverlay) {
-      returnScrollY.current = window.scrollY;
+      if (window.scrollY > 0) returnScrollY.current = window.scrollY;
       return;
     }
 
