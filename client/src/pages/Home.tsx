@@ -1,5 +1,5 @@
 // Eryndex Signal Atelier｜頁面內容與互動採資料流長頁、偏移分欄與系統標籤，所有主要文案均以三語資料結構維護
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useRoute } from "wouter";
 import {
   ArrowDownRight,
