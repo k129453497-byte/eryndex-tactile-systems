@@ -716,12 +716,12 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 @media (prefers-reduced-motion: reduce) { .satellite-track, .satellite-core-glow { animation: none !important; } }
 
 /* Follow the actual outer ellipse instead of rotating four rectangular anchor points. */
-.satellite-track { animation: none; }
-.product-satellite { top: 50%; left: 50%; transform: translate(-50%, -50%); offset-path: ellipse(450px 180px at 50% 50%); offset-rotate: 0deg; animation: satellite-node-orbit 18s linear infinite; }
+.satellite-track { animation: none; transform: translate(-50%, -50%) rotate(-12deg); }
+.product-satellite { top: 50%; left: 50%; transform: translate(-50%, -50%); offset-path: path("M 450 0 C 699 0 900 81 900 180 C 900 279 699 360 450 360 C 201 360 0 279 0 180 C 0 81 201 0 450 0"); offset-rotate: 0deg; animation: satellite-node-orbit 18s linear infinite; }
 .product-satellite:hover { transform: translate(-50%, -50%) scale(1.08); }
 .satellite-2 { animation-delay: -4.5s; }.satellite-3 { animation-delay: -9s; }.satellite-4 { animation-delay: -13.5s; }
 @keyframes satellite-node-orbit { from { offset-distance: 0%; } to { offset-distance: 100%; } }
-@media (max-width: 720px) { .product-satellite { offset-path: ellipse(46vw 115px at 50% 50%); } }
+@media (max-width: 720px) { .satellite-track { transform: translate(-50%, -50%) rotate(-12deg); }.product-satellite { offset-path: ellipse(46vw 115px at 50% 50%); } }
 @media (prefers-reduced-motion: reduce) { .product-satellite { animation: none !important; } }
 @media (max-width: 720px) {
   .hero-copy h1 { line-height: 1.18; letter-spacing: .008em; }
