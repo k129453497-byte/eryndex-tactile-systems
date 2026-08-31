@@ -113,9 +113,9 @@ const solutionModuleCopy = {
 } as const;
 
 const articleData = [
-  { tag: { "zh-TW": "趨勢觀察", "zh-CN": "趋势观察", en: "Trend note" }, title: { "zh-TW": "AI 導入不是換一個工具，而是重新理解工作流", "zh-CN": "AI 导入不是换一个工具，而是重新理解工作流", en: "Adopting AI starts with understanding the work, not adding another tool" }, read: { "zh-TW": "6 分鐘閱讀 · 範例文章", "zh-CN": "6 分钟阅读 · 示例文章", en: "6 min read · Example article" }, tone: "cyan" },
-  { tag: { "zh-TW": "導入指南", "zh-CN": "导入指南", en: "Field guide" }, title: { "zh-TW": "中小企業建立第一個 AI 流程前，先問這五個問題", "zh-CN": "中小企业建立第一个 AI 流程前，先问这五个问题", en: "Five questions to ask before building your first AI workflow" }, read: { "zh-TW": "8 分鐘閱讀 · 範例文章", "zh-CN": "8 分钟阅读 · 示例文章", en: "8 min read · Example article" }, tone: "violet" },
-  { tag: { "zh-TW": "資安清單", "zh-CN": "资安清单", en: "Security checklist" }, title: { "zh-TW": "一份給成長型團隊的 AI 資料安全檢查清單", "zh-CN": "一份给成长型团队的 AI 数据安全检查清单", en: "An AI data security checklist for growing teams" }, read: { "zh-TW": "4 分鐘閱讀 · 範例文章", "zh-CN": "4 分钟阅读 · 示例文章", en: "4 min read · Example article" }, tone: "mint" },
+  { tag: { "zh-TW": "製作 Skills", "zh-CN": "制作 Skills", en: "Production skills" }, title: { "zh-TW": "前端建構、視覺審核與 RWD 調整", "zh-CN": "前端建构、视觉审核与 RWD 调整", en: "Front-end build, visual review, and responsive refinement" }, read: { "zh-TW": "用途：元件版面、字體系統、動效、可及性與跨裝置檢查", "zh-CN": "用途：组件版面、字体系统、动效、可及性与跨装置检查", en: "Use: components, type system, motion, accessibility, and cross-device review" }, tone: "cyan" },
+  { tag: { "zh-TW": "AI 圖像製作", "zh-CN": "AI 图像制作", en: "AI visual creation" }, title: { "zh-TW": "OpenAI ImageGen 的主視覺探索", "zh-CN": "OpenAI ImageGen 的主视觉探索", en: "Hero visual exploration with OpenAI ImageGen" }, read: { "zh-TW": "用途：科技核心視覺、構圖版本與透明素材可行性測試", "zh-CN": "用途：科技核心视觉、构图版本与透明素材可行性测试", en: "Use: technology-core concepts, composition variants, and transparency testing" }, tone: "violet" },
+  { tag: { "zh-TW": "設計參考", "zh-CN": "设计参考", en: "Design references" }, title: { "zh-TW": "Linear 與 Vercel 的產品網站語言", "zh-CN": "Linear 与 Vercel 的产品网站语言", en: "Product-site cues from Linear and Vercel" }, read: { "zh-TW": "參考：低干擾層級、清晰排版、克制動效與深色產品感", "zh-CN": "参考：低干扰层级、清晰排版、克制动效与深色产品感", en: "Reference: quiet hierarchy, clear type, purposeful motion, and dark product tone" }, tone: "mint" },
 ];
 
 const faqs = [
@@ -240,8 +240,8 @@ function HomeResources() {
   return <>
     <section className="resources-articles section-dark home-topic" id="resources">
       <div className="container">
-        <div className="section-heading split-heading"><div><Eyebrow index="04">{lang === "en" ? "Resource center" : lang === "zh-CN" ? "资源中心" : "資源中心"}</Eyebrow><h2>{lang === "en" ? <>Make the next<br /><em>decision clearer</em></> : lang === "zh-CN" ? <>让下一个<br /><em>决定更清晰</em></> : <>讓下一個<br /><em>決定更清晰</em></>}</h2></div><span className="example-badge">EXAMPLE CONTENT / 非真实案例</span></div>
-        <p className="home-topic-intro">{lang === "en" ? "Clear perspectives on AI adoption, data governance, and operational improvement. All content below is currently an example and does not represent customer cases" : lang === "zh-CN" ? "把 AI 导入、数据治理与运营改善拆成容易理解的观点。以下内容目前均为示例文章，不代表真实客户案例" : "把 AI 導入、資料治理與營運改善拆成容易理解的觀點。以下內容目前皆為示範文章，不代表真實客戶案例"}</p>
+        <div className="section-heading split-heading"><div><Eyebrow index="04">{lang === "en" ? "Resource center" : lang === "zh-CN" ? "资源中心" : "資源中心"}</Eyebrow><h2>{lang === "en" ? <>How this site<br /><em>takes shape</em></> : lang === "zh-CN" ? <>这个网站<br /><em>如何成形</em></> : <>這個網站<br /><em>如何成形</em></>}</h2></div><span className="example-badge">PRODUCTION NOTES / 製作紀錄</span></div>
+        <p className="home-topic-intro">{lang === "en" ? "A concise record of the production skills, AI visual tooling, and design references behind this website" : lang === "zh-CN" ? "记录本网站使用的制作能力、AI 视觉工具与设计参考方向" : "記錄本網站使用的製作能力、AI 視覺工具與設計參考方向"}</p>
         <div className="articles-grid">{articleData.map((article) => <ArticleCard key={tx(article.title, lang)} article={article} />)}</div>
       </div>
     </section>
@@ -323,7 +323,7 @@ export function SolutionsPage() {
 
 function ArticleCard({ article }: { article: (typeof articleData)[number] }) {
   const { lang } = useSite();
-  return <article className={`article-card tone-${article.tone}`}><div className="article-art"><div className="article-lines" /><span>RESOURCE / 2026</span></div><div className="article-copy"><p className="card-category">{tx(article.tag, lang)}</p><h3>{tx(article.title, lang)}</h3><p className="article-read">{lang === "en" ? "Practical resource · Example" : lang === "zh-CN" ? "实用资源 · 示例内容" : "實用資源 · 示範內容"}</p></div></article>;
+  return <article className={`article-card tone-${article.tone}`}><div className="article-art"><div className="article-lines" /><span>RESOURCE / 2026</span></div><div className="article-copy"><p className="card-category">{tx(article.tag, lang)}</p><h3>{tx(article.title, lang)}</h3><p className="article-read">{tx(article.read, lang)}</p></div></article>;
 }
 
 export function ResourcesPage() {
