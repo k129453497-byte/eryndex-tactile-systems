@@ -717,9 +717,9 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 @media (min-width: 1001px) {
   .about-values { width: min(1075px, calc(100vw - 245px)); margin-top: 72px; margin-left: max(40px, calc(50vw - 455px)); margin-right: auto; }
   .principle-grid .signal-rail { transform: translateX(158px); }
-  .about-values .values-grid { border-top: 0; border-left: 0; }
-  .about-values .value-cell:first-child { border-bottom: 0; }
-  .about-values .value-cell:not(:first-child) { border-top: 1px solid var(--line); }
+  /* 四項原則作為內容導覽，不使用卡片或表格邊框。 */
+  .about-values .values-grid { border: 0; }
+  .about-values .value-cell { border: 0; }
   .principle-mark { justify-self: center; }
 }
 @media (max-width: 720px) {
