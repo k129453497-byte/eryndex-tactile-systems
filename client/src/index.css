@@ -716,6 +716,8 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 /* About section grid alignment｜主文與四項原則共用同一條起始線。 */
 @media (min-width: 1001px) {
   .about-values { width: min(1075px, calc(100vw - 245px)); margin-top: 72px; margin-left: max(40px, calc(50vw - 455px)); margin-right: auto; }
+  .principle-grid .signal-rail { transform: translateX(123px); }
+  .about-values .values-grid { border-left: 0; }
   .principle-mark { justify-self: center; }
 }
 @media (max-width: 720px) {
