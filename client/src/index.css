@@ -693,6 +693,11 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   font-weight: 500;
   letter-spacing: 0;
 }
+
+/* SVG satellite system｜路徑與衛星共用同一條 SVG ellipse，確保永遠貼線運行。 */
+.satellite-system { position: relative; margin-top: 24px; padding-bottom: 28px; }.satellite-svg { display: block; width: 100%; height: auto; overflow: visible; }.satellite-orbit-line { fill: none; stroke: rgba(98,231,255,.42); stroke-width: 1; }.satellite-core-ring { fill: rgba(7,17,31,.96); stroke: rgba(98,231,255,.72); stroke-width: 1; filter: drop-shadow(0 0 18px rgba(98,231,255,.45)); }.satellite-core-ring-soft { fill: none; stroke: rgba(98,231,255,.12); stroke-width: 14; }.satellite-brand-mark { filter: drop-shadow(0 0 13px rgba(98,231,255,.72)); }.satellite-core-label { fill: #98cbd5; font: 9px "Inter", sans-serif; letter-spacing: 2px; }.svg-satellite-link { cursor: pointer; }.svg-satellite-shell { fill: #07111f; stroke: rgba(173,221,236,.5); stroke-width: 1; transition: r 180ms ease, stroke 180ms ease; }.svg-satellite-icon-ring { fill: none; stroke: var(--cyan); stroke-width: 1; }.svg-satellite-icon { display: grid; width: 28px; height: 28px; place-items: center; color: var(--cyan); }.svg-satellite-name { fill: #e5f4f7; font: 12px var(--font-body); }.svg-satellite-link.tone-mint .svg-satellite-icon, .svg-satellite-link.tone-mint .svg-satellite-icon-ring { color: var(--mint); stroke: var(--mint); }.svg-satellite-link.tone-violet .svg-satellite-icon, .svg-satellite-link.tone-violet .svg-satellite-icon-ring { color: var(--violet); stroke: var(--violet); }.svg-satellite-link:hover .svg-satellite-shell, .svg-satellite-link:focus .svg-satellite-shell { r: 60; stroke: var(--cyan); }.satellite-hint { margin: -5px 0 0; color: #7898a3; font-size: .67rem; text-align: center; }
+@media (max-width: 720px) { .satellite-system { margin-top: 8px; }.satellite-svg { min-width: 640px; margin-left: 50%; transform: translateX(-50%); }.satellite-system { overflow: hidden; }.satellite-hint { font-size: .58rem; } }
+@media (prefers-reduced-motion: reduce) { .svg-satellite animateMotion { display: none; } }
 @media (max-width: 720px) {
   .hero-copy h1 { line-height: 1.18; letter-spacing: .008em; }
   .principle-copy h2 { line-height: 1.3; letter-spacing: .012em; }
