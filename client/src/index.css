@@ -702,6 +702,16 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 .svg-satellite-icon { width: 24px; height: 24px; }
 .svg-satellite-name { font-size: 11px; }
 .svg-satellite-link:hover .svg-satellite-shell, .svg-satellite-link:focus .svg-satellite-shell { r: 52; }
+
+/* Restore the core's breathing glow and a restrained signal halo on the orbit. */
+.satellite-brand-mark { animation: satellite-logo-breathe 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.satellite-core-ring { animation: satellite-core-halo 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.satellite-core-ring-soft { animation-delay: -1.4s; }
+.satellite-orbit-line { filter: drop-shadow(0 0 5px rgba(98,231,255,.3)); animation: satellite-orbit-glow 3.8s ease-in-out infinite; }
+@keyframes satellite-logo-breathe { 0%,100% { opacity: .76; filter: drop-shadow(0 0 10px rgba(98,231,255,.5)); transform: scale(.96); } 50% { opacity: 1; filter: drop-shadow(0 0 22px rgba(98,231,255,.95)); transform: scale(1.045); } }
+@keyframes satellite-core-halo { 0%,100% { opacity: .58; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.06); } }
+@keyframes satellite-orbit-glow { 0%,100% { opacity: .38; stroke-width: 1; } 50% { opacity: .82; stroke-width: 1.35; } }
+@media (prefers-reduced-motion: reduce) { .satellite-brand-mark, .satellite-core-ring, .satellite-orbit-line { animation: none !important; } }
 @media (max-width: 720px) {
   .hero-copy h1 { line-height: 1.18; letter-spacing: .008em; }
   .principle-copy h2 { line-height: 1.3; letter-spacing: .012em; }
