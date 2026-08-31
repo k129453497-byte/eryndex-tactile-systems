@@ -699,9 +699,9 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 @media (max-width: 720px) { .satellite-system { margin-top: 8px; }.satellite-svg { min-width: 640px; margin-left: 50%; transform: translateX(-50%); }.satellite-system { overflow: hidden; }.satellite-hint { font-size: .58rem; } }
 @media (prefers-reduced-motion: reduce) { .svg-satellite animateMotion { display: none; } }
 
-.svg-satellite-icon { width: 24px; height: 24px; }
-.svg-satellite-name { font-size: 11px; }
-.svg-satellite-link:hover .svg-satellite-shell, .svg-satellite-link:focus .svg-satellite-shell { r: 52; }
+.svg-satellite-icon { width: 22px; height: 22px; }
+.svg-satellite-name { font-size: 10.5px; }
+.svg-satellite-link:hover .svg-satellite-shell, .svg-satellite-link:focus .svg-satellite-shell { r: 49; }
 
 /* Restore the core's breathing glow and a restrained signal halo on the orbit. */
 .satellite-brand-mark { animation: satellite-logo-breathe 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }

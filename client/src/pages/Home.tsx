@@ -197,11 +197,11 @@ function ProductSatelliteSystem({ lang }: { lang: Lang }) {
     <svg className="satellite-svg" viewBox="0 0 1000 520" role="img" aria-label={satelliteLabel}>
       <defs><path id={orbitId} d="M 110 260 A 390 150 -12 1 1 890 260 A 390 150 -12 1 1 110 260" /></defs>
       <path className="satellite-orbit-line" d="M 110 260 A 390 150 -12 1 1 890 260 A 390 150 -12 1 1 110 260" />
-      <circle className="satellite-core-ring" cx="500" cy="260" r="80" />
-      <circle className="satellite-core-ring satellite-core-ring-soft" cx="500" cy="260" r="96" />
-      <image className="satellite-brand-mark" href="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" x="462" y="222" width="76" height="76" />
-      <text className="satellite-core-label" x="500" y="329" textAnchor="middle">{lang === "en" ? "SYSTEM CORE" : lang === "zh-CN" ? "系统核心" : "系統核心"}</text>
-      {products.map((product, index) => { const Icon = product.icon; const begin = `-${index * 4.5}s`; return <Link key={product.slug} href={`/products/${product.slug}`} className={`svg-satellite-link tone-${product.tone}`} aria-label={tx(product.name, lang)}><g className="svg-satellite"><animateMotion dur="18s" begin={begin} repeatCount="indefinite" rotate="0"><mpath href={`#${orbitId}`} /></animateMotion><circle className="svg-satellite-shell" r="46" /><circle className="svg-satellite-icon-ring" r="17" /><foreignObject x="-12" y="-12" width="24" height="24"><div className="svg-satellite-icon"><Icon size={22} strokeWidth={1.35} /></div></foreignObject><text className="svg-satellite-name" y="31" textAnchor="middle">{tx(product.name, lang)}</text></g></Link>; })}
+      <circle className="satellite-core-ring" cx="500" cy="260" r="65" />
+      <circle className="satellite-core-ring satellite-core-ring-soft" cx="500" cy="260" r="78" />
+      <image className="satellite-brand-mark" href="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" x="468" y="228" width="64" height="64" />
+      <text className="satellite-core-label" x="500" y="314" textAnchor="middle">{lang === "en" ? "SYSTEM CORE" : lang === "zh-CN" ? "系统核心" : "系統核心"}</text>
+      {products.map((product, index) => { const Icon = product.icon; const begin = `-${index * 4.5}s`; return <Link key={product.slug} href={`/products/${product.slug}`} className={`svg-satellite-link tone-${product.tone}`} aria-label={tx(product.name, lang)}><g className="svg-satellite"><animateMotion dur="18s" begin={begin} repeatCount="indefinite" rotate="0"><mpath href={`#${orbitId}`} /></animateMotion><circle className="svg-satellite-shell" r="43" /><circle className="svg-satellite-icon-ring" r="16" /><foreignObject x="-11" y="-11" width="22" height="22"><div className="svg-satellite-icon"><Icon size={20} strokeWidth={1.35} /></div></foreignObject><text className="svg-satellite-name" y="29" textAnchor="middle">{tx(product.name, lang)}</text></g></Link>; })}
     </svg>
     <p className="satellite-hint">{lang === "en" ? "Four modules · One connected system" : lang === "zh-CN" ? "四个模块 · 一个连接的系统" : "四個模組 · 一個連結的系統"}</p>
   </div>;
