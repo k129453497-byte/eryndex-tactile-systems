@@ -794,6 +794,8 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   height: 12px;
   animation: hero-core-flicker 2.8s ease-in-out infinite;
 }
+/* 首頁核心改為純光暈版本，暫不疊加藍、綠、紫提示點與軌道。 */
+.hero-art::after, .hero-art .hero-signal-dot, .hero-art .hero-orbit { display: none; }
 @keyframes hero-core-flicker {
   0%, 100% { opacity: .58; transform: scale(.82); box-shadow: 0 0 0 5px rgba(98,231,255,.06), 0 0 18px rgba(98,231,255,.62); }
   45% { opacity: 1; transform: scale(1.18); box-shadow: 0 0 0 10px rgba(98,231,255,.12), 0 0 42px rgba(98,231,255,.98); }
