@@ -1,5 +1,5 @@
 // Eryndex Signal Atelier｜頁面內容與互動採資料流長頁、偏移分欄與系統標籤，所有主要文案均以三語資料結構維護
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useRoute } from "wouter";
 import {
   ArrowDownRight,
@@ -190,36 +190,6 @@ function HomeCTA() {
   return <section className="cta-band"><div className="container cta-inner"><div><h2>{lang === "en" ? "Start with one workflow worth understanding" : lang === "zh-CN" ? "从一个值得理解的工作流开始" : "從一個值得理解的工作流開始"}</h2></div><PrimaryButton href="/contact">{lang === "en" ? "Talk to Eryndex about your needs" : lang === "zh-CN" ? "与 Eryndex 讨论需求" : "與 Eryndex 討論需求"}</PrimaryButton></div></section>;
 }
 
-function ProductSatelliteSystem({ lang }: { lang: Lang }) {
-  const [speed, setSpeed] = useState(1);
-  const pointerStart = useRef<{ x: number; time: number } | null>(null);
-  const releaseTimer = useRef<number | null>(null);
-  const satelliteLabel = lang === "en" ? "Four Eryndex products orbiting the company core" : lang === "zh-CN" ? "围绕公司核心运行的四个 Eryndex 产品卫星" : "圍繞公司核心運行的四個 Eryndex 產品衛星";
-  const beginDrag = (event: React.PointerEvent<HTMLDivElement>) => {
-    pointerStart.current = { x: event.clientX, time: performance.now() };
-    event.currentTarget.setPointerCapture(event.pointerId);
-  };
-  const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!pointerStart.current) return;
-    const distance = event.clientX - pointerStart.current.x;
-    const elapsed = Math.max(80, performance.now() - pointerStart.current.time);
-    const nextSpeed = Math.max(.35, Math.min(3.2, 1 + (distance / elapsed) * 4));
-    setSpeed(nextSpeed);
-    pointerStart.current = null;
-    if (releaseTimer.current) window.clearTimeout(releaseTimer.current);
-    releaseTimer.current = window.setTimeout(() => setSpeed(1), 1800);
-  };
-  return <div className="satellite-system" aria-label={satelliteLabel} onPointerDown={beginDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
-    <div className="satellite-orbit satellite-orbit-outer" />
-    <div className="satellite-orbit satellite-orbit-inner" />
-    <div className="satellite-core"><span className="satellite-core-glow" /><img src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="Eryndex" /><small>{lang === "en" ? "SYSTEM CORE" : lang === "zh-CN" ? "系统核心" : "系統核心"}</small></div>
-    <div className="satellite-track" style={{ animationDuration: `${18 / speed}s` }}>
-      {products.map((product, index) => { const Icon = product.icon; return <Link key={product.slug} href={`/products/${product.slug}`} className={`product-satellite satellite-${index + 1} tone-${product.tone}`} onPointerDown={(event) => event.stopPropagation()}><span className="satellite-icon"><Icon size={22} strokeWidth={1.35} /></span><span className="satellite-name">{tx(product.name, lang)}</span></Link>; })}
-    </div>
-    <p className="satellite-hint">{lang === "en" ? "Drag to accelerate · Select a satellite to explore" : lang === "zh-CN" ? "滑动可加速 · 点击卫星查看产品" : "滑動可加速 · 點擊衛星查看產品"}</p>
-  </div>;
-}
-
 function HomeAbout() {
   const { lang } = useSite();
   const values = [
@@ -284,7 +254,17 @@ export function Home() {
           </div>
           <HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor>
         </div>
-        <ProductSatelliteSystem lang={lang} />
+        <div className="solution-module-grid" aria-label={lang === "en" ? "Four Eryndex product modules" : lang === "zh-CN" ? "Eryndex 四个产品模块" : "Eryndex 四個產品模組"}>
+          {products.map((product) => {
+            const Icon = product.icon;
+            const module = solutionModuleCopy[product.slug];
+            return <Link href={`/products/${product.slug}`} className={`solution-module tone-${product.tone}`} key={product.slug}>
+              <div className={`solution-module-icon solution-product-fallback tone-${product.tone}`} aria-hidden="true"><div className="solution-icon-orbit orbit-primary" /><div className="solution-icon-orbit orbit-secondary" /><div className="solution-icon-core"><Icon size={26} strokeWidth={1.25} /></div></div>
+              <div className="solution-module-copy"><p className="solution-module-label">{tx(module.label, lang)}</p><h3>{tx(product.name, lang)}</h3><p>{tx(module.summary, lang)}</p></div>
+              <span className="solution-module-link">{lang === "en" ? "View module" : lang === "zh-CN" ? "查看模块" : "查看模組"}<ArrowUpRight size={15} /></span>
+            </Link>;
+          })}
+        </div>
         <p className="solution-composition-note">{lang === "en" ? "Use one module on its own. Connect the next one when the business is ready." : lang === "zh-CN" ? "可以单独使用一个模块，也可以在企业准备好时连接下一个模块。" : "可以單獨使用一個模組，也可以在企業準備好時連接下一個模組。"}</p>
       </div>
     </section>

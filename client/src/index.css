@@ -693,26 +693,6 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   font-weight: 500;
   letter-spacing: 0;
 }
-
-/* Product satellite system｜四個產品共用一條清楚的軌道，中央 Logo 是固定系統核心。 */
-.satellite-system { position: relative; min-height: 620px; margin-top: 20px; overflow: hidden; touch-action: pan-y; user-select: none; }
-.satellite-orbit { position: absolute; top: 50%; left: 50%; border: 1px solid rgba(98,231,255,.2); border-radius: 50%; transform: translate(-50%, -50%) rotate(-12deg); pointer-events: none; }
-.satellite-orbit-outer { width: min(900px, 88vw); height: min(360px, 38vw); box-shadow: 0 0 0 18px rgba(98,231,255,.018), 0 0 0 58px rgba(98,231,255,.012); }
-.satellite-orbit-inner { width: min(650px, 68vw); height: min(260px, 28vw); border-color: rgba(163,139,255,.16); transform: translate(-50%, -50%) rotate(68deg); }
-.satellite-core { position: absolute; top: 50%; left: 50%; z-index: 3; display: grid; width: 148px; height: 148px; place-items: center; border: 1px solid rgba(98,231,255,.65); border-radius: 50%; background: radial-gradient(circle, rgba(98,231,255,.28), rgba(7,17,31,.96) 62%); box-shadow: 0 0 0 10px rgba(98,231,255,.06), 0 0 42px rgba(98,231,255,.28); transform: translate(-50%, -50%); }
-.satellite-core img { position: relative; z-index: 2; width: 62px; height: 62px; object-fit: contain; }
-.satellite-core small { position: absolute; bottom: 19px; color: #91cbd6; font: .5rem "Inter", sans-serif; letter-spacing: .16em; }
-.satellite-core-glow { position: absolute; inset: 32px; border-radius: 50%; background: var(--cyan); opacity: .28; filter: blur(18px); animation: satellite-core-pulse 2.8s ease-in-out infinite; }
-.satellite-track { position: absolute; top: 50%; left: 50%; width: min(900px, 88vw); height: min(360px, 38vw); transform: translate(-50%, -50%); animation: satellite-track-spin 18s linear infinite; }
-.product-satellite { position: absolute; z-index: 4; display: grid; width: 116px; min-height: 116px; place-items: center; align-content: center; gap: 9px; border: 1px solid rgba(173,221,236,.34); border-radius: 50%; background: rgba(7,17,31,.92); color: #eaf7f9; box-shadow: 0 12px 30px rgba(0,0,0,.3), 0 0 22px rgba(98,231,255,.08); transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
-.product-satellite:hover { border-color: var(--cyan); box-shadow: 0 0 0 7px rgba(98,231,255,.08), 0 0 30px rgba(98,231,255,.3); transform: scale(1.08); }
-.satellite-1 { top: 50%; left: -58px; transform: translateY(-50%); }.satellite-2 { top: -58px; left: 50%; transform: translateX(-50%); }.satellite-3 { top: 50%; right: -58px; transform: translateY(-50%); }.satellite-4 { bottom: -58px; left: 50%; transform: translateX(-50%); }
-.satellite-icon { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid currentColor; border-radius: 50%; color: var(--cyan); }.tone-mint .satellite-icon { color: var(--mint); }.tone-violet .satellite-icon { color: var(--violet); }
-.satellite-name { font: .7rem var(--font-body); letter-spacing: .01em; text-align: center; }.satellite-hint { position: absolute; right: 0; bottom: 10px; left: 0; color: #718f9b; font: .65rem var(--font-body); letter-spacing: .04em; text-align: center; }
-@keyframes satellite-track-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-@keyframes satellite-core-pulse { 0%,100% { opacity: .22; transform: scale(.85); } 50% { opacity: .5; transform: scale(1.18); } }
-@media (max-width: 720px) { .satellite-system { min-height: 430px; }.satellite-orbit-outer, .satellite-track { width: 92vw; height: 230px; }.satellite-orbit-inner { width: 66vw; height: 180px; }.satellite-core { width: 105px; height: 105px; }.satellite-core img { width: 45px; height: 45px; }.satellite-core small { bottom: 12px; font-size: .4rem; }.product-satellite { width: 82px; min-height: 82px; gap: 5px; }.satellite-icon { width: 30px; height: 30px; }.satellite-icon svg { width: 17px; height: 17px; }.satellite-name { max-width: 68px; font-size: .58rem; }.satellite-1 { left: -41px; }.satellite-2 { top: -41px; }.satellite-3 { right: -41px; }.satellite-4 { bottom: -41px; }.satellite-hint { bottom: 0; font-size: .58rem; } }
-@media (prefers-reduced-motion: reduce) { .satellite-track, .satellite-core-glow { animation: none !important; } }
 @media (max-width: 720px) {
   .hero-copy h1 { line-height: 1.18; letter-spacing: .008em; }
   .principle-copy h2 { line-height: 1.3; letter-spacing: .012em; }
