@@ -753,7 +753,7 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 
 /* Hero background experiment: use the signal artwork as an atmospheric full-bleed layer. */
 .hero-section {
-  background-image: linear-gradient(90deg, rgba(7,17,31,.98) 0%, rgba(7,17,31,.88) 31%, rgba(7,17,31,.42) 57%, rgba(7,17,31,.14) 100%), linear-gradient(180deg, rgba(7,17,31,.16), rgba(7,17,31,.48)), url("https://files.manuscdn.com/user_upload_by_module/session_file/310519663923627772/okYRpvrSlQAxMEsw.png");
+  background-image: linear-gradient(90deg, rgba(7,17,31,.98) 0%, rgba(7,17,31,.88) 31%, rgba(7,17,31,.42) 57%, rgba(7,17,31,.14) 100%), linear-gradient(180deg, rgba(7,17,31,.16), rgba(7,17,31,.48)), url("/eryndex-hero-network.png");
   background-position: center, center, right center;
   background-size: cover, cover, cover;
   background-repeat: no-repeat;
@@ -766,7 +766,7 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
   .orbit-b { top: 37%; left: 39%; width: 53%; height: 76%; }
 }
 @media (max-width: 720px) {
-  .hero-section { background-image: linear-gradient(180deg, rgba(7,17,31,.96) 0%, rgba(7,17,31,.82) 46%, rgba(7,17,31,.48) 100%), url("https://files.manuscdn.com/user_upload_by_module/session_file/310519663923627772/okYRpvrSlQAxMEsw.png"); background-position: center, 66% center; background-size: cover, auto 100%; }
+  .hero-section { background-image: linear-gradient(180deg, rgba(7,17,31,.96) 0%, rgba(7,17,31,.82) 46%, rgba(7,17,31,.48) 100%), url("/eryndex-hero-network.png"); background-position: center, 66% center; background-size: cover, auto 100%; }
   .hero-art { min-height: 350px; }
   .orbit-a, .orbit-b { display: none; }
 }
