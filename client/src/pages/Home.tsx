@@ -114,7 +114,7 @@ const solutionModuleCopy = {
 
 const articleData = [
   { tag: { "zh-TW": "製作 Skills", "zh-CN": "制作 Skills", en: "Production skills" }, title: { "zh-TW": "前端建構、視覺審核與 RWD 調整", "zh-CN": "前端建构、视觉审核与 RWD 调整", en: "Front-end build, visual review, and responsive refinement" }, read: { "zh-TW": "用途：元件版面、字體系統、動效、可及性與跨裝置檢查", "zh-CN": "用途：组件版面、字体系统、动效、可及性与跨装置检查", en: "Use: components, type system, motion, accessibility, and cross-device review" }, tone: "cyan" },
-  { tag: { "zh-TW": "AI 圖像製作", "zh-CN": "AI 图像制作", en: "AI visual creation" }, title: { "zh-TW": "OpenAI ImageGen 的主視覺探索", "zh-CN": "OpenAI ImageGen 的主视觉探索", en: "Hero visual exploration with OpenAI ImageGen" }, read: { "zh-TW": "用途：科技核心視覺、構圖版本與透明素材可行性測試", "zh-CN": "用途：科技核心视觉、构图版本与透明素材可行性测试", en: "Use: technology-core concepts, composition variants, and transparency testing" }, tone: "violet" },
+  { tag: { "zh-TW": "AI 圖像與圖示", "zh-CN": "AI 图像与图标", en: "AI visuals and icons" }, title: { "zh-TW": "Manus AI × Lucide Icons", "zh-CN": "Manus AI × Lucide Icons", en: "Manus AI × Lucide Icons" }, read: { "zh-TW": "Hero 主視覺與品牌 Logo 由 Manus 內建 AI 生成／編修；產品功能 icon 採用 Lucide，並以 SVG／CSS 製作動效。", "zh-CN": "Hero 主视觉与品牌 Logo 由 Manus 内建 AI 生成／编辑；产品功能图标采用 Lucide，并以 SVG／CSS 制作动效。", en: "Hero visuals and the brand logo use Manus built-in AI; product icons use Lucide with SVG/CSS motion." }, tone: "violet" },
   { tag: { "zh-TW": "設計參考", "zh-CN": "设计参考", en: "Design references" }, title: { "zh-TW": "Linear 與 Vercel 的產品網站語言", "zh-CN": "Linear 与 Vercel 的产品网站语言", en: "Product-site cues from Linear and Vercel" }, read: { "zh-TW": "參考：低干擾層級、清晰排版、克制動效與深色產品感", "zh-CN": "参考：低干扰层级、清晰排版、克制动效与深色产品感", en: "Reference: quiet hierarchy, clear type, purposeful motion, and dark product tone" }, tone: "mint" },
 ];
 
