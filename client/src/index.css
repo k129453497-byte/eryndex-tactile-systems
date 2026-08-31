@@ -821,3 +821,12 @@ h1, h2, h3, h4, h5, h6,
 .section-heading h2, .page-header h1, .cta-inner h2 {
   font-family: var(--font-heading) !important;
 }
+
+/* Resource center｜製作紀錄直接展開在卡片內，不另導向文章頁。 */
+.article-copy { min-height: 0; }
+.article-details { display: grid; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+.article-details li { position: relative; padding-left: 13px; color: #91abb6; font-size: .76rem; line-height: 1.7; }
+.article-details li::before { content: ""; position: absolute; top: .62em; left: 0; width: 4px; height: 4px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 9px rgba(98,231,255,.6); }
+.article-source-links { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 21px; }
+.article-source-links a { display: inline-flex; align-items: center; gap: 4px; color: var(--cyan); font-size: .7rem; }
+.article-source-links a:hover { color: #c1f8ff; }
