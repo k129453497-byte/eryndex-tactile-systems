@@ -717,6 +717,7 @@ html, body, button, input, select, textarea { font-family: var(--font-ui); }
 @media (min-width: 1001px) {
   .about-values { width: min(1075px, calc(100vw - 245px)); margin-top: 72px; margin-left: max(40px, calc(50vw - 455px)); margin-right: auto; }
   .principle-grid .signal-rail { transform: translateX(158px); }
+  .principle-grid .signal-rail::after { content: ""; position: absolute; left: 50%; bottom: -160px; width: 1px; height: 160px; background: linear-gradient(rgba(98,231,255,.08), var(--cyan)); }
   /* 四項原則作為內容導覽，不使用卡片或表格邊框。 */
   .about-values .values-grid { border: 0; }
   .about-values .value-cell { border: 0; }
