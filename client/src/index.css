@@ -830,3 +830,48 @@ h1, h2, h3, h4, h5, h6,
 .article-source-links { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 21px; }
 .article-source-links a { display: inline-flex; align-items: center; gap: 4px; color: var(--cyan); font-size: .7rem; }
 .article-source-links a:hover { color: #c1f8ff; }
+
+
+/* Final responsive guard｜保留使用者的四格／單欄組合結構，只修正可視寬度與固定尺寸溢出。 */
+html, body, #root { max-width: 100%; overflow-x: hidden; }
+.solution-module-grid, .solution-module, .solution-module-copy, .solution-module-link { min-width: 0; max-width: 100%; }
+.solution-module-copy h3, .solution-module-copy > p:last-child, .solution-module-link { overflow-wrap: anywhere; }
+@media (max-width: 1050px) {
+  .hero-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .hero-art { margin-right: 0; min-width: 0; }
+  .hero-image-frame { right: 0; width: 100%; max-width: 100%; }
+}
+@media (max-width: 720px) {
+  .container, .header-inner { width: min(100% - 36px, 1240px); }
+  .hero-section { min-height: auto; padding: 128px 0 34px; }
+  .hero-layout { display: flex; min-height: 0; flex-direction: column; align-items: stretch; gap: 34px; }
+  .hero-copy { max-width: none; }
+  .hero-art { width: 100%; min-height: 0; height: min(72vw, 330px); margin: 0; }
+  .hero-image-frame { position: absolute; top: 0; right: 0; width: 100%; height: 100%; transform: none; }
+  .hero-orbit.orbit-a { top: 10%; right: 2%; width: 70%; height: 32%; }
+  .hero-orbit.orbit-b { top: 18%; right: 16%; width: 48%; height: 64%; }
+  .hero-signal-overlay { opacity: .6; }
+  .solution-module-grid { width: 100%; grid-template-columns: minmax(0, 1fr); }
+  .solution-module { width: 100%; grid-template-columns: 70px minmax(0, 1fr); padding: 14px; gap: 7px 14px; }
+  .solution-module-icon { width: 66px; height: 66px; }
+  .solution-module-icon .solution-icon-orbit { width: 56px; height: 56px; }
+  .solution-module-icon .solution-icon-orbit.orbit-secondary { width: 44px; height: 44px; }
+  .solution-module-icon .solution-icon-core { width: 34px; height: 34px; }
+  .solution-module-icon .solution-icon-core svg { width: 17px; height: 17px; }
+}
+
+/* Hero signal atelier｜訊號沿著既有主視覺流動，不取代圖片、不干擾文字。 */
+.hero-signal-overlay { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .72; mix-blend-mode: screen; }
+.hero-signal-path { fill: none; stroke-width: 1.15; stroke-linecap: round; stroke-dasharray: 2 15 62 9; animation: hero-signal-flow 11s linear infinite; vector-effect: non-scaling-stroke; }
+.hero-signal-path.path-cyan { stroke: rgba(98,231,255,.52); }
+.hero-signal-path.path-mint { stroke: rgba(105,230,193,.42); animation-duration: 14s; animation-delay: -4s; }
+.hero-signal-path.path-violet { stroke: rgba(163,139,255,.38); animation-duration: 17s; animation-delay: -8s; }
+.hero-signal-node { stroke-width: 1; animation: hero-node-breathe 3.8s ease-in-out infinite; vector-effect: non-scaling-stroke; }
+.hero-signal-node.node-cyan { fill: var(--cyan); stroke: rgba(224,252,255,.8); }
+.hero-signal-node.node-mint { fill: var(--mint); stroke: rgba(224,255,246,.8); animation-delay: -1.2s; }
+.hero-signal-node.node-violet { fill: var(--violet); stroke: rgba(244,240,255,.8); animation-delay: -2.3s; }
+@keyframes hero-signal-flow { to { stroke-dashoffset: -176; } }
+@keyframes hero-node-breathe { 0%,100% { opacity: .35; transform: scale(.72); transform-origin: center; } 50% { opacity: .95; transform: scale(1.7); transform-origin: center; } }
+@media (max-width: 720px) { .hero-signal-path { stroke-width: .9; stroke-dasharray: 2 18 48 12; } .hero-signal-node { r: 2.5; } }
+@media (prefers-reduced-motion: reduce) { .hero-signal-path, .hero-signal-node { animation: none !important; }
+}
