@@ -875,3 +875,18 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
 @media (max-width: 720px) { .hero-signal-path { stroke-width: .9; stroke-dasharray: 2 18 48 12; } .hero-signal-node { r: 2.5; } }
 @media (prefers-reduced-motion: reduce) { .hero-signal-path, .hero-signal-node { animation: none !important; }
 }
+
+
+/* Mobile overflow fix v2｜Satellite SVG 改為真正跟隨容器寬度，不再以 640px 最小寬度裁切內容。 */
+@media (max-width: 720px) {
+  .satellite-system { width: 100%; max-width: 100%; overflow: hidden; }
+  .satellite-svg { display: block; width: 100%; min-width: 0; max-width: 100%; margin-left: 0; transform: none; }
+}
+
+/* Hero signal runners｜沿三條不同路徑循環，速度與相位錯開，讓訊號像系統持續運作。 */
+.hero-signal-runner { stroke-width: .8; opacity: .9; vector-effect: non-scaling-stroke; }
+.hero-signal-runner.runner-cyan { fill: #dffbff; stroke: var(--cyan); filter: drop-shadow(0 0 5px var(--cyan)); }
+.hero-signal-runner.runner-mint { fill: #e1fff6; stroke: var(--mint); filter: drop-shadow(0 0 5px var(--mint)); }
+.hero-signal-runner.runner-violet { fill: #f0edff; stroke: var(--violet); filter: drop-shadow(0 0 5px var(--violet)); }
+.hero-signal-runner.runner-secondary { opacity: .58; }
+@media (prefers-reduced-motion: reduce) { .hero-signal-runner { display: none; } }
