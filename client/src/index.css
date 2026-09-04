@@ -939,3 +939,52 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
   .hero-flow-path, .hero-flow-core-halo, .hero-flow-core-point, .flow-node { animation: none !important; }
   .flow-runner animateMotion { display: none; }
 }
+
+/* Homepage copy expansion｜增加可掃讀的決策脈絡，不改動既有視覺語言。 */
+.hero-support { max-width: 570px; margin: -9px 0 0; color: #7895a2; font-size: .84rem; line-height: 1.8; }
+.hero-support + .hero-actions { margin-top: 27px; }
+.home-challenges, .trust-section { position: relative; overflow: hidden; background: #0c1d31; }
+.home-challenges { padding: 118px 0 124px; }
+.home-challenges::after { content: ""; position: absolute; top: 0; right: 13%; width: 1px; height: 100%; background: linear-gradient(transparent, rgba(98,231,255,.2), transparent); }
+.challenge-heading { margin-bottom: 54px; }
+.challenge-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid rgba(173,221,236,.18); border-left: 1px solid rgba(173,221,236,.18); }
+.challenge-card { min-height: 272px; padding: 28px 30px 30px; border-right: 1px solid rgba(173,221,236,.18); border-bottom: 1px solid rgba(173,221,236,.18); background: rgba(8,24,40,.14); }
+.challenge-card > svg { margin: 30px 0 22px; color: var(--cyan); }
+.challenge-index { color: #6e8b97; font: .62rem "Inter", sans-serif; letter-spacing: .13em; }
+.challenge-card h3, .implementation-steps h3 { margin: 0 0 10px; color: #eff9fb; font-size: 1.18rem; font-weight: 510; letter-spacing: -.03em; }
+.challenge-card p, .implementation-steps p { margin: 0; color: #8ba6b2; font-size: .82rem; line-height: 1.78; }
+.implementation-section { position: relative; padding: 122px 0 132px; overflow: hidden; }
+.implementation-section::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 82% 14%, rgba(98,231,255,.08), transparent 24%); pointer-events: none; }
+.implementation-steps { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(173,221,236,.18); }
+.implementation-steps li { display: grid; grid-template-columns: 48px 1fr; gap: 18px; min-height: 190px; padding: 30px 28px 24px 0; border-bottom: 1px solid rgba(173,221,236,.18); }
+.implementation-steps li + li { padding-left: 28px; border-left: 1px solid rgba(173,221,236,.18); }
+.implementation-steps li > span { color: var(--cyan); font: .67rem "Inter", sans-serif; letter-spacing: .1em; }
+.trust-section { padding: 124px 0; background: #0a1a2b; }
+.trust-section::before { content: ""; position: absolute; width: 420px; height: 420px; top: -260px; right: 8%; border: 1px solid rgba(163,139,255,.2); border-radius: 50%; box-shadow: 0 0 0 58px rgba(98,231,255,.025), 0 0 0 126px rgba(163,139,255,.018); }
+.trust-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, .72fr); gap: 150px; align-items: start; }
+.trust-section h2 { margin: 20px 0 0; color: #eff9fb; font-size: clamp(2.25rem, 4.4vw, 4.4rem); font-weight: 420; letter-spacing: -.065em; line-height: 1.05; }
+.trust-section h2 em, .cta-inner h2 em { color: var(--cyan); font-style: normal; }
+.trust-copy { display: grid; gap: 22px; padding-top: 30px; }
+.trust-copy p { margin: 0; color: #91aab6; font-size: .92rem; line-height: 1.9; }
+.cta-inner > div > p { max-width: 600px; margin: 20px 0 0; color: #829da9; font-size: .88rem; line-height: 1.8; }
+
+@media (max-width: 1000px) {
+  .trust-grid { gap: 70px; }
+  .challenge-card { padding: 25px 22px; }
+  .implementation-steps li, .implementation-steps li + li { padding-right: 18px; padding-left: 18px; }
+  .implementation-steps li:first-child { padding-left: 0; }
+}
+@media (max-width: 720px) {
+  .hero-support { font-size: .8rem; }
+  .home-challenges, .implementation-section, .trust-section { padding: 84px 0 90px; }
+  .challenge-heading { margin-bottom: 36px; }
+  .challenge-grid, .implementation-steps { grid-template-columns: 1fr; }
+  .challenge-card { min-height: 0; padding: 24px 20px 26px; }
+  .challenge-card > svg { margin: 20px 0 16px; }
+  .implementation-steps li, .implementation-steps li + li, .implementation-steps li:first-child { min-height: 0; padding: 24px 0; border-left: 0; }
+  .implementation-steps li + li { border-top: 1px solid rgba(173,221,236,.18); }
+  .trust-grid { grid-template-columns: 1fr; gap: 18px; }
+  .trust-copy { padding-top: 0; }
+  .trust-copy p { font-size: .87rem; }
+  .cta-inner > div > p { font-size: .83rem; }
+}
