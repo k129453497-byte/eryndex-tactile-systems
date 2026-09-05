@@ -988,3 +988,18 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
   .trust-copy p { font-size: .87rem; }
   .cta-inner > div > p { font-size: .83rem; }
 }
+
+
+/* Product visual system v2｜生成式主視覺承擔產品敘事，SVG 只作為低強度狀態層。 */
+.product-visual-image { position: absolute; z-index: 1; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .96; filter: saturate(.9) contrast(1.03); transition: transform 520ms var(--ease-out), opacity 320ms var(--ease-out), filter 320ms var(--ease-out); }
+.product-visual-wash { position: absolute; z-index: 2; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(5,16,29,.24), transparent 42%, rgba(5,16,29,.08)), linear-gradient(0deg, rgba(5,16,29,.28), transparent 42%, rgba(5,16,29,.08)); }
+.visual-fallback::before { z-index: 3; opacity: .12; }
+.product-motion-overlay { z-index: 4; opacity: .26; mix-blend-mode: screen; }
+.product-card:hover .product-visual-image, .product-list-card:hover .product-visual-image { transform: scale(1.035); opacity: 1; filter: saturate(1) contrast(1.06); }
+.product-card:hover .product-motion-overlay, .product-list-card:hover .product-motion-overlay { opacity: .5; }
+.product-qadryn .product-visual-wash { background: linear-gradient(90deg, rgba(4,21,37,.28), transparent 48%, rgba(4,21,37,.06)); }
+.product-vessyra .product-visual-wash { background: linear-gradient(90deg, rgba(4,22,26,.3), transparent 48%, rgba(4,22,26,.08)); }
+.product-mireqon .product-visual-wash { background: linear-gradient(90deg, rgba(9,12,35,.28), transparent 48%, rgba(9,12,35,.08)); }
+.product-terviq .product-visual-wash { background: linear-gradient(90deg, rgba(12,11,34,.32), transparent 48%, rgba(22,14,23,.1)); }
+@media (prefers-reduced-motion: reduce) { .product-visual-image { transition: none; } }
+@media (max-width: 720px) { .product-visual-image { object-position: center; } .product-motion-overlay { opacity: .2; } }
