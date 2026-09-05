@@ -268,7 +268,7 @@ function HomeAbout() {
     { icon: ArrowDownRight, title: { "zh-TW": "成長", "zh-CN": "成长", en: "Growth" }, text: { "zh-TW": "從一個可衡量的場景開始，隨著企業成熟而擴展系統", "zh-CN": "从一个可衡量的场景开始，随着企业成熟而扩展系统", en: "Start with one measurable scenario and expand as the business matures" } },
   ];
   return <>
-    <section className="principle-section home-topic" id="about">
+    <section className="principle-section home-topic about-glow-preview" id="about">
       <div className="container principle-grid">
         <SignalRail />
         <div className="principle-copy">
@@ -278,7 +278,7 @@ function HomeAbout() {
           <p className="principle-supporting-copy">{lang === "en" ? "Eryndex brings automation, data security, and operational intelligence into one clear context for small and medium businesses" : lang === "zh-CN" ? "Eryndex 将自动化、数据安全与运营洞察放进同一个清晰脉络，为中小企业建立更好的工作系统" : "Eryndex 將自動化、資料安全與營運洞察放進同一個清晰脈絡，為中小企業建立更好的工作系統"}</p>
           <HomeAnchor id="products" className="arrow-link">{lang === "en" ? "See the product system" : lang === "zh-CN" ? "查看产品系统" : "查看產品系統"}<ArrowRight size={16} /></HomeAnchor>
         </div>
-        <div className="principle-mark" aria-hidden="true"><div className="mark-core"><img className="principle-brand-mark" src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></div><span className="principle-signal-dot dot-green" /><span className="principle-signal-dot dot-violet" /></div>
+        <div className="about-brand-glow" aria-hidden="true"><LoopVideo name="about-glow" label="" className="about-glow-video" /><img className="about-fixed-logo" src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></div>
       </div>
     <div className="about-values container" aria-label={lang === "en" ? "How we work" : lang === "zh-CN" ? "我们的工作方式" : "我們的工作方式"}>
       <div className="values-grid">{values.map((value) => { const Icon = value.icon; return <div className="value-cell" key={tx(value.title, lang)}><Icon size={24} strokeWidth={1.4} /><h3>{tx(value.title, lang)}</h3><p>{tx(value.text, lang)}</p></div>; })}</div>

@@ -953,6 +953,34 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
   .hero-video-shade { background: linear-gradient(90deg, rgba(7,17,31,.9), rgba(7,17,31,.65)); }
 }
 
+/* About brand preview: fixed mark over the approved breathing light. */
+.about-glow-preview { background: #14212b; }
+.about-glow-preview .principle-grid { grid-template-columns: 20px minmax(0, 1fr) 300px; gap: 36px; }
+.about-glow-preview .signal-rail { transform: none; min-height: 0; }
+.about-glow-preview .signal-rail::after { display: none; }
+.about-glow-preview .principle-copy { max-width: 760px; }
+.about-glow-preview .principle-copy h2 { max-width: none; }
+.about-brand-glow { position: relative; width: 300px; height: 300px; display: grid; place-items: center; isolation: isolate; justify-self: center; }
+.about-glow-video { position: absolute; inset: 0; object-fit: cover; opacity: .48; mix-blend-mode: screen; mask-image: radial-gradient(ellipse, #000 12%, transparent 70%); }
+.about-fixed-logo { position: relative; width: 124px; height: 124px; object-fit: contain; mix-blend-mode: screen; }
+.about-glow-preview .about-values { width: min(1240px, calc(100% - 80px)); margin: 64px auto 0; padding-left: 56px; }
+.about-glow-preview .values-grid { border: 0; gap: 32px; }
+.about-glow-preview .value-cell { border: 0; min-height: 0; padding: 0; }
+.about-glow-preview .value-cell svg { margin: 0 0 20px; }
+@media (max-width: 1000px) {
+  .about-glow-preview .principle-grid { grid-template-columns: 16px minmax(0, 1fr); gap: 24px; }
+  .about-brand-glow { grid-column: 2; width: 260px; height: 260px; }
+  .about-glow-preview .signal-rail { grid-row: 1; }
+  .about-glow-preview .about-values { padding-left: 40px; }
+}
+@media (max-width: 720px) {
+  .about-glow-preview .principle-grid { grid-template-columns: 8px minmax(0, 1fr); gap: 16px; }
+  .about-brand-glow { width: 240px; height: 220px; max-width: 100%; }
+  .about-fixed-logo { width: 110px; height: 110px; }
+  .about-glow-preview .about-values { width: calc(100% - 36px); padding-left: 24px; margin-top: 32px; }
+  .about-glow-preview .values-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px 20px; }
+}
+
 /* Homepage copy expansion｜增加可掃讀的決策脈絡，不改動既有視覺語言。 */
 .hero-support { max-width: 570px; margin: -9px 0 0; color: #7895a2; font-size: .84rem; line-height: 1.8; }
 .hero-support + .hero-actions { margin-top: 27px; }
