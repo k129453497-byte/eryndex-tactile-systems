@@ -1,5 +1,5 @@
 // Eryndex Signal Atelier｜頁面內容與互動採資料流長頁、偏移分欄與系統標籤，所有主要文案均以三語資料結構維護
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useRoute } from "wouter";
 import {
   ArrowDownRight,
@@ -161,7 +161,34 @@ function SignalRail({ label }: { label?: string }) {
 }
 
 
+function LoopVideo({ name, label, className = "" }: { name: string; label: string; className?: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let visible = false;
+    const sync = () => {
+      if (visible && !motion.matches && !document.hidden) void video.play().catch(() => {});
+      else video.pause();
+    };
+    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); });
+    observer.observe(video);
+    motion.addEventListener("change", sync);
+    document.addEventListener("visibilitychange", sync);
+    return () => { observer.disconnect(); motion.removeEventListener("change", sync); document.removeEventListener("visibilitychange", sync); };
+  }, []);
+  const base = `${import.meta.env.BASE_URL}media/${name}`;
+  return <video ref={ref} className={`loop-video ${className}`} src={`${base}.mp4`} poster={`${base}.jpg`} muted loop playsInline preload="metadata" aria-label={label} />;
+}
+
 function ProductVisual({ product, detail = false, compact = false }: { product: Product; detail?: boolean; compact?: boolean }) {
+  const { lang } = useSite();
+  if (compact) return <LegacyProductVisual product={product} compact />;
+  return <div className={`${detail ? "detail-visual" : "product-image-wrap"} product-video-wrap`}><LoopVideo name={product.slug} label={tx(product.name, lang)} /></div>;
+}
+
+function LegacyProductVisual({ product, detail = false, compact = false }: { product: Product; detail?: boolean; compact?: boolean }) {
   const { lang } = useSite();
   const visualLabel = tx(product.name, lang);
   const motionId = `product-path-${product.slug}`;
@@ -277,7 +304,9 @@ export function Home() {
   const { lang } = useSite();
   return <>
     <Meta title="Eryndex 智序科技｜讓科技理解工作" description="Eryndex 智序科技為中小企業提供 AI 自動化、資料安全、營運洞察與企業內部 AI 工具" />
-    <section className="hero-section">
+    <section className="hero-section hero-video-section">
+      <LoopVideo name="hero" label="Eryndex" className="hero-background-video" />
+      <div className="hero-video-shade" aria-hidden="true" />
       <div className="hero-grid-lines" aria-hidden="true" />
       <svg className="hero-flow-overlay" viewBox="0 0 1600 800" preserveAspectRatio="none" aria-hidden="true">
         <defs>
