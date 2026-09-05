@@ -242,6 +242,21 @@ function HomeTrust() {
   return <section className="trust-section home-topic"><div className="container trust-grid"><div><Eyebrow>{lang === "en" ? "Designed for enterprise reality" : lang === "zh-CN" ? "为企业现实而设计" : "為企業現實而設計"}</Eyebrow><h2>{lang === "en" ? <>AI should not move<br /><em>your data further away.</em></> : lang === "zh-CN" ? <>AI 不该让资料<br /><em>离企业更远。</em></> : <>AI 不該讓資料<br /><em>離企業更遠。</em></>}</h2></div><div className="trust-copy"><p>{lang === "en" ? "Useful AI begins with clear data boundaries, understandable access, and workflows that people can review. Eryndex treats these as design choices from the start—not controls added after the fact." : lang === "zh-CN" ? "有用的 AI 必须从清楚的资料边界、可理解的存取方式，以及团队能够检视的工作流程开始。Eryndex 把这些视为一开始就该做好的设计选择，而不是事后才补上的控制。" : "有用的 AI 必須從清楚的資料邊界、可理解的存取方式，以及團隊能夠檢視的工作流程開始。Eryndex 把這些視為一開始就該做好的設計選擇，而不是事後才補上的控制。"}</p><p>{lang === "en" ? "The aim is not to automate everything. It is to make routine work more consistent while keeping important judgment visible and with the people responsible for it." : lang === "zh-CN" ? "目标不是把所有事情都自动化，而是让例行工作更一致，同时让重要判断维持可见，并留在负责的人手上。" : "目標不是把所有事情都自動化，而是讓例行工作更一致，同時讓重要判斷維持可見，並留在負責的人手上。"}</p></div></div></section>;
 }
 
+function SolutionScenarioCards({ lang }: { lang: Lang }) {
+  const scenarios = [
+    { slug: "qadryn", title: { "zh-TW": "行政與客服流程", "zh-CN": "行政与客服流程", en: "Admin & customer service" }, problem: { "zh-TW": "需求散落在信箱、表單與聊天訊息，交接靠人工追問，資料還得重複輸入。", "zh-CN": "需求散落在邮箱、表单与聊天消息，交接依靠人工追问，资料还得重复输入。", en: "Requests live across inboxes, forms, and chat. Teams chase handoffs and enter the same information again." }, approach: { "zh-TW": "从需求收件、文件整理到任務分派，串起清楚的處理路徑，保留需要人工判斷的節點。", "zh-CN": "从需求收件、文件整理到任务分派，串起清晰的处理路径，保留需要人工判断的节点。", en: "Connect intake, document handling, and task routing while keeping human review at the decisions that need it." } },
+    { slug: "vessyra", title: { "zh-TW": "資料與權限治理", "zh-CN": "资料与权限治理", en: "Data & access governance" }, problem: { "zh-TW": "團隊持續成長，卻不容易看清誰能存取哪些資料、使用哪些裝置。", "zh-CN": "团队持续成长，却不容易看清谁能存取哪些资料、使用哪些设备。", en: "As teams grow, it becomes harder to see who can access which data and through which devices." }, approach: { "zh-TW": "從帳號、裝置與資料存取關係開始盤點，釐清權限邊界與待處理風險，建立日常檢視依據。", "zh-CN": "从帐号、设备与资料存取关系开始盘点，厘清权限边界与待处理风险，建立日常检视依据。", en: "Map identities, devices, and data access to clarify boundaries and risks that need regular review." } },
+    { slug: "mireqon", title: { "zh-TW": "營運訊號追蹤", "zh-CN": "运营讯号追踪", en: "Operational signals" }, problem: { "zh-TW": "銷售、客服與專案各有報表，會議卻仍花很多時間確認數據與解釋落差。", "zh-CN": "销售、客服与专案各有报表，会议却仍花很多时间确认数据与解释落差。", en: "Sales, service, and project reports remain separate. Meetings are spent reconciling numbers and explaining gaps." }, approach: { "zh-TW": "整理關鍵資料與指標脈絡，協助辨識趨勢、異常與變化，為下一步討論提供共同依據。", "zh-CN": "整理关键资料与指标脉络，协助辨识趋势、异常与变化，为下一步讨论提供共同依据。", en: "Bring key data and metrics into context so teams can identify trends, exceptions, and changes together." } },
+    { slug: "terviq", title: { "zh-TW": "企業知識應用", "zh-CN": "企业知识应用", en: "Internal knowledge & AI" }, problem: { "zh-TW": "文件與經驗分散在不同資料夾和人員手上，同樣的問題反覆詢問，知識難以接續。", "zh-CN": "文件与经验分散在不同资料夹和人员手上，同样的问题反复询问，知识难以接续。", en: "Documents and know-how are scattered across folders and people, leaving recurring questions unanswered." }, approach: { "zh-TW": "先整理可使用的文件、權限與知識範圍，再評估內部 AI 查詢與工作輔助場景，保留人工確認。", "zh-CN": "先整理可使用的文件、权限与知识范围，再评估内部 AI 查询与工作辅助场景，保留人工确认。", en: "Define usable documents, permissions, and knowledge scope before assessing internal AI assistance with human verification." } },
+  ];
+  return <div className="scenario-grid">{scenarios.map((item, i) => <Link href={`/products/${item.slug}`} className={`scenario-card scenario-${item.slug}`} key={item.slug}>
+    <div className="scenario-top"><span className="scenario-number">0{i + 1}</span><img src={`${import.meta.env.BASE_URL}media/${item.slug}.jpg`} alt="" loading="lazy" /></div>
+    <h3>{tx(item.title, lang)}</h3>
+    <dl><div><dt>{lang === "en" ? "The challenge" : lang === "zh-CN" ? "常见困扰" : "常見困擾"}</dt><dd>{tx(item.problem, lang)}</dd></div><div><dt>{lang === "en" ? "Where to begin" : lang === "zh-CN" ? "改善方式" : "改善方式"}</dt><dd>{tx(item.approach, lang)}</dd></div></dl>
+    <div className="scenario-footer"><span>{products.find(p => p.slug === item.slug)?.name[lang]}</span><span>{lang === "en" ? "Explore product" : lang === "zh-CN" ? "了解对应产品" : "了解對應產品"}<ArrowUpRight size={16} /></span></div>
+  </Link>)}</div>;
+}
+
 function ProductSatelliteSystem({ lang }: { lang: Lang }) {
   const orbitId = "eryndex-product-orbit";
   const satelliteLabel = lang === "en" ? "Four Eryndex products orbiting the company core" : lang === "zh-CN" ? "围绕公司核心运行的四个 Eryndex 产品卫星" : "圍繞公司核心運行的四個 Eryndex 產品衛星";
@@ -350,7 +365,7 @@ export function Home() {
     <HomeChallenges />
     <HomeAbout />
     <section className="product-intro section-dark home-topic" id="products"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="03">{lang === "en" ? "Product system" : lang === "zh-CN" ? "产品系统" : "產品系統"}</Eyebrow><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>使工作<br /><em>流动得更清晰</em></> : <>使工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div></section>
-    <section className="solutions-preview section-dark home-topic" id="solutions">
+    <section className="solutions-preview section-dark home-topic scenario-section" id="solutions">
       <div className="container">
         <div className="section-heading split-heading">
           <div>
@@ -360,7 +375,7 @@ export function Home() {
           </div>
           <HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor>
         </div>
-        <ProductSatelliteSystem lang={lang} />
+        <SolutionScenarioCards lang={lang} />
         <p className="solution-composition-note">{lang === "en" ? "Use one module on its own. Connect the next one when the business is ready." : lang === "zh-CN" ? "可以单独使用一个模块，也可以在企业准备好时连接下一个模块。" : "可以單獨使用一個模組，也可以在企業準備好時連接下一個模組。"}</p>
       </div>
     </section>

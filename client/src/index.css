@@ -981,6 +981,31 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
   .about-glow-preview .values-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px 20px; }
 }
 
+.scenario-section { background: #14181f; }
+.scenario-section::before { display: none; }
+.scenario-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+.scenario-card { --scenario-accent: #62e7ff; display: flex; flex-direction: column; padding: 28px 32px; min-width: 0; border: 1px solid #34404b; background: #202731; border-radius: 12px; transition: border-color .2s, background .2s; }
+.scenario-vessyra { --scenario-accent: #69e6c1; }
+.scenario-mireqon { --scenario-accent: #b49aff; }
+.scenario-terviq { --scenario-accent: #80b7ff; }
+.scenario-card:hover, .scenario-card:focus-visible { border-color: var(--scenario-accent); background: #252e39; }
+.scenario-card:focus-visible { outline: 2px solid var(--scenario-accent); outline-offset: 4px; }
+.scenario-top { display: flex; align-items: center; justify-content: space-between; min-height: 90px; }
+.scenario-number { color: var(--scenario-accent); font-size: .75rem; letter-spacing: .12em; }
+.scenario-top img { width: 144px; height: 90px; object-fit: contain; mix-blend-mode: screen; }
+.scenario-card h3 { font-size: clamp(1.3rem,2vw,1.65rem); color: #eff9fb; margin: 12px 0 24px; }
+.scenario-card dl { display: grid; gap: 20px; margin: 0 0 28px; }
+.scenario-card dt { font-size: .72rem; color: var(--scenario-accent); margin-bottom: 7px; }
+.scenario-card dd { margin: 0; font-size: .9rem; line-height: 1.85; color: #bccbd3; }
+.scenario-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid #3a4651; margin-top: auto; padding-top: 20px; color: var(--scenario-accent); font-size: .78rem; }
+.scenario-footer > span:last-child { display: inline-flex; align-items: center; gap: 8px; }
+.scenario-section .solution-composition-note { margin-top: 32px; }
+@media (max-width: 720px) {
+  .scenario-grid { grid-template-columns: 1fr; gap: 18px; }
+  .scenario-card { padding: 22px; }
+  .scenario-card dd { font-size: .85rem; }
+}
+
 /* Homepage copy expansion｜增加可掃讀的決策脈絡，不改動既有視覺語言。 */
 .hero-support { max-width: 570px; margin: -9px 0 0; color: #7895a2; font-size: .84rem; line-height: 1.8; }
 .hero-support + .hero-actions { margin-top: 27px; }
