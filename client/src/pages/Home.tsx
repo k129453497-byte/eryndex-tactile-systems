@@ -227,14 +227,14 @@ function HomeChallenges() {
   return <section className="home-challenges home-topic" aria-labelledby="challenges-title"><div className="container"><div className="section-heading challenge-heading"><div><Eyebrow index="02">{lang === "en" ? "Where work gets stuck" : lang === "zh-CN" ? "工作卡住的地方" : "工作卡住的地方"}</Eyebrow><h2 id="challenges-title">{lang === "en" ? <>The problem is rarely<br /><em>a lack of tools.</em></> : lang === "zh-CN" ? <>问题通常不在工具不够，<br /><em>而在工作没有被清楚串起。</em></> : <>問題通常不在工具不夠，<br /><em>而在工作沒有被清楚串起。</em></>}</h2></div><p>{lang === "en" ? "When work loses its context, teams spend more time moving information, confirming status, and chasing decisions than making progress." : lang === "zh-CN" ? "当工作失去脉络，团队往往花更多时间搬运资讯、确认进度与追问决定，而不是实际推进工作。" : "當工作失去脈絡，團隊往往花更多時間搬運資訊、確認進度與追問決定，而不是實際推進工作。"}</p></div><div className="challenge-grid">{challenges.map((challenge, index) => { const Icon = challenge.icon; return <article className="challenge-card" key={tx(challenge.title, lang)}><span className="challenge-index">0{index + 1}</span><Icon size={24} strokeWidth={1.35} /><h3>{tx(challenge.title, lang)}</h3><p>{tx(challenge.text, lang)}</p></article>; })}</div></div></section>;
 }
 
-function HomeImplementation() {
+function SolutionImplementation() {
   const { lang } = useSite();
   const steps = [
     { number: "01", title: { "zh-TW": "釐清工作", "zh-CN": "厘清工作", en: "Clarify the work" }, text: { "zh-TW": "從一個重複、延遲或風險較高的工作場景開始，先看清參與角色、資料來源與真正需要判斷的節點。", "zh-CN": "从一个重复、延迟或风险较高的工作场景开始，先看清参与角色、资料来源与真正需要判断的节点。", en: "Begin with one repeated, delayed, or high-risk scenario. Make the people, data sources, and decision points visible." } },
     { number: "02", title: { "zh-TW": "建立模組", "zh-CN": "建立模块", en: "Build a module" }, text: { "zh-TW": "依需求選擇流程自動化、資料邊界、營運洞察或企業內部 AI，讓改善先在可衡量的範圍內發生。", "zh-CN": "依需求选择流程自动化、资料边界、运营洞察或企业内部 AI，让改善先在可衡量的范围内发生。", en: "Apply workflow, security, insight, or internal AI capabilities where the outcome can first be measured." } },
     { number: "03", title: { "zh-TW": "逐步連結", "zh-CN": "逐步连接", en: "Connect over time" }, text: { "zh-TW": "當第一個場景變得清楚且可持續，再連結下一個流程、資料或團隊，讓系統跟著企業節奏成長。", "zh-CN": "当第一个场景变得清晰且可持续，再连接下一个流程、资料或团队，让系统跟着企业节奏成长。", en: "Once the first scenario is clear and sustainable, connect the next process, data source, or team at the business's pace." } },
   ];
-  return <section className="implementation-section section-dark home-topic"><div className="container"><div className="section-heading split-heading"><div><Eyebrow>{lang === "en" ? "A practical path" : lang === "zh-CN" ? "实际导入路径" : "實際導入路徑"}</Eyebrow><h2>{lang === "en" ? <>Start with one scenario.<br /><em>Build a system over time.</em></> : lang === "zh-CN" ? <>从一个工作场景开始，<br /><em>建立可扩充的系统。</em></> : <>從一個工作場景開始，<br /><em>建立可擴充的系統。</em></>}</h2></div><p>{lang === "en" ? "There is no need to replace every system at once. A clear first use case gives the team a safer, more useful route forward." : lang === "zh-CN" ? "不需要一次替换所有系统。先完成一个清楚的应用场景，团队就能用更稳健、更有用的方式继续前进。" : "不需要一次替換所有系統。先完成一個清楚的應用場景，團隊就能用更穩健、更有用的方式繼續前進。"}</p></div><ol className="implementation-steps">{steps.map((step) => <li key={step.number}><span>{step.number}</span><div><h3>{tx(step.title, lang)}</h3><p>{tx(step.text, lang)}</p></div></li>)}</ol></div></section>;
+  return <div className="solution-implementation"><ol className="implementation-steps">{steps.map((step) => <li key={step.number}><span>{step.number}</span><div><h3>{tx(step.title, lang)}</h3><p>{tx(step.text, lang)}</p></div></li>)}</ol></div>;
 }
 
 function HomeTrust() {
@@ -379,10 +379,10 @@ export function Home() {
           <HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor>
         </div>
         <ProductSatelliteSystem lang={lang} />
+        <SolutionImplementation />
         <p className="solution-composition-note">{lang === "en" ? "Use one module on its own. Connect the next one when the business is ready." : lang === "zh-CN" ? "可以单独使用一个模块，也可以在企业准备好时连接下一个模块。" : "可以單獨使用一個模組，也可以在企業準備好時連接下一個模組。"}</p>
       </div>
     </section>
-    <HomeImplementation />
     <HomeTrust />
     <HomeResources />
     <HomeCTA />

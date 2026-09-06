@@ -1022,8 +1022,7 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
 .challenge-index { color: #6e8b97; font: .62rem "Inter", sans-serif; letter-spacing: .13em; }
 .challenge-card h3, .implementation-steps h3 { margin: 0 0 10px; color: #eff9fb; font-size: 1.18rem; font-weight: 510; letter-spacing: -.03em; }
 .challenge-card p, .implementation-steps p { margin: 0; color: #8ba6b2; font-size: .82rem; line-height: 1.78; }
-.implementation-section { position: relative; padding: 122px 0 132px; overflow: hidden; }
-.implementation-section::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 82% 14%, rgba(98,231,255,.08), transparent 24%); pointer-events: none; }
+.solution-implementation { position: relative; margin-top: clamp(32px, 4vw, 56px); }
 .implementation-steps { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(173,221,236,.18); }
 .implementation-steps li { display: grid; grid-template-columns: 48px 1fr; gap: 18px; min-height: 190px; padding: 30px 28px 24px 0; border-bottom: 1px solid rgba(173,221,236,.18); }
 .implementation-steps li + li { padding-left: 28px; border-left: 1px solid rgba(173,221,236,.18); }
