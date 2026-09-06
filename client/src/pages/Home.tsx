@@ -364,8 +364,8 @@ export function Home() {
     </section>
     <HomeChallenges />
     <HomeAbout />
-    <section className="product-intro section-dark home-topic" id="products"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="03">{lang === "en" ? "Product system" : lang === "zh-CN" ? "产品系统" : "產品系統"}</Eyebrow><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>使工作<br /><em>流动得更清晰</em></> : <>使工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div></section>
-    <section className="solutions-preview section-dark home-topic scenario-section" id="solutions">
+    <section className="product-intro section-dark home-topic" id="products"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="03">{lang === "en" ? "Product system" : lang === "zh-CN" ? "产品系统" : "產品系統"}</Eyebrow><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>使工作<br /><em>流动得更清晰</em></> : <>使工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div><div className="product-scenarios"><div className="section-heading"><Eyebrow>{lang === "en" ? "Application examples" : lang === "zh-CN" ? "应用情境示意" : "應用情境示意"}</Eyebrow><h2>{lang === "en" ? "Put products into everyday work" : lang === "zh-CN" ? "把产品用在实际工作里" : "把產品用在實際工作裡"}</h2></div><SolutionScenarioCards lang={lang} /></div></div></section>
+    <section className="solutions-preview section-dark home-topic" id="solutions">
       <div className="container">
         <div className="section-heading split-heading">
           <div>
@@ -375,7 +375,7 @@ export function Home() {
           </div>
           <HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor>
         </div>
-        <SolutionScenarioCards lang={lang} />
+        <ProductSatelliteSystem lang={lang} />
         <p className="solution-composition-note">{lang === "en" ? "Use one module on its own. Connect the next one when the business is ready." : lang === "zh-CN" ? "可以单独使用一个模块，也可以在企业准备好时连接下一个模块。" : "可以單獨使用一個模組，也可以在企業準備好時連接下一個模組。"}</p>
       </div>
     </section>
