@@ -161,7 +161,7 @@ function SignalRail({ label }: { label?: string }) {
 }
 
 
-function LoopVideo({ name, label, className = "" }: { name: string; label: string; className?: string }) {
+function LoopVideo({ name, label, className = "", loopFrom }: { name: string; label: string; className?: string; loopFrom?: number }) {
   const ref = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const video = ref.current;
@@ -179,7 +179,13 @@ function LoopVideo({ name, label, className = "" }: { name: string; label: strin
     return () => { observer.disconnect(); motion.removeEventListener("change", sync); document.removeEventListener("visibilitychange", sync); };
   }, []);
   const base = `${import.meta.env.BASE_URL}media/${name}`;
-  return <video ref={ref} className={`loop-video ${className}`} src={`${base}.mp4`} poster={`${base}.jpg`} muted loop playsInline preload="metadata" aria-label={label} />;
+  const repeatEnding = () => {
+    const video = ref.current;
+    if (!video || loopFrom === undefined) return;
+    video.currentTime = loopFrom;
+    void video.play().catch(() => {});
+  };
+  return <video ref={ref} className={`loop-video ${className}`} src={`${base}.mp4`} poster={`${base}.jpg`} muted loop={loopFrom === undefined} onEnded={repeatEnding} playsInline preload="metadata" aria-label={label} />;
 }
 
 function ProductVisual({ product, detail = false, compact = false }: { product: Product; detail?: boolean; compact?: boolean }) {
@@ -322,7 +328,7 @@ export function Home() {
   return <>
     <Meta title="Eryndex 智序科技｜讓科技理解工作" description="Eryndex 智序科技為中小企業提供 AI 自動化、資料安全、營運洞察與企業內部 AI 工具" />
     <section className="hero-section hero-video-section">
-      <LoopVideo name="hero" label="Eryndex" className="hero-background-video" />
+      <LoopVideo name="hero" label="Eryndex" className="hero-background-video" loopFrom={22.75} />
       <div className="hero-video-shade" aria-hidden="true" />
       <div className="hero-grid-lines" aria-hidden="true" />
       <svg className="hero-flow-overlay" viewBox="0 0 1600 800" preserveAspectRatio="none" aria-hidden="true">
