@@ -135,7 +135,7 @@ img { display: block; max-width: 100%; }
 .principle-supporting-copy { margin: -10px 0 26px; }
 .home-topic-intro { position: relative; z-index: 1; margin: -28px 0 40px; }
 .product-intro, .solutions-preview, .products-listing, .other-products, .resources-articles, .contact-section, .making-section { position: relative; padding: 122px 0 132px; overflow: hidden; }
-.product-intro::before, .solutions-preview::before, .resources-articles::before { content: ""; position: absolute; top: 0; right: 15%; width: 1px; height: 100%; background: linear-gradient(transparent, rgba(98,231,255,.2), transparent); }
+.product-intro::before, .solutions-preview::before, .resources-articles::before { content: none; }
 .section-heading { position: relative; z-index: 1; margin-bottom: 58px; }
 .split-heading { display: flex; align-items: end; justify-content: space-between; gap: 50px; }
 .section-heading h2, .principle-copy h2, .about-practice h2, .detail-sticky h2, .contact-aside h2, .form-heading h2, .making-lede h2, .references-grid h2, .not-found h1 { margin: 20px 0 0; color: #eff9fb; font-family: "Inter", "Noto Sans TC", sans-serif; font-size: clamp(2.25rem, 4.6vw, 4.5rem); font-weight: 420; letter-spacing: -.065em; line-height: 1.05; }
@@ -550,7 +550,7 @@ body.modal-open { overflow: hidden; }
 
 /* Site architecture dossier｜將 Skills、AI 視覺、技術與 modal 架構整理成可掃讀的系統卡片。 */
 .making-dossier { position: relative; padding: 118px 0 128px; overflow: hidden; border-top: 1px solid rgba(173,221,236,.08); }
-.making-dossier::before { content: ""; position: absolute; top: 0; right: 18%; width: 1px; height: 100%; background: linear-gradient(transparent, rgba(98,231,255,.2), transparent); }
+.making-dossier::before { content: none; }
 .dossier-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 100px; position: relative; z-index: 1; }
 .dossier-intro h2 { margin-top: 18px; font-size: clamp(2.2rem, 4vw, 4.2rem); }
 .dossier-intro > p { max-width: 410px; margin: 26px 0 0; color: #91abb6; font-size: .9rem; line-height: 1.9; }
