@@ -1022,6 +1022,30 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
 .challenge-index { color: #6e8b97; font: .62rem "Inter", sans-serif; letter-spacing: .13em; }
 .challenge-card h3, .implementation-steps h3 { margin: 0 0 10px; color: #eff9fb; font-size: 1.18rem; font-weight: 510; letter-spacing: -.03em; }
 .challenge-card p, .implementation-steps p { margin: 0; color: #8ba6b2; font-size: .82rem; line-height: 1.78; }
+.orbit-refined { max-width: 1040px; margin: 0 auto; padding-bottom: 12px; background: radial-gradient(ellipse at center, rgba(39,118,141,.12), transparent 55%); }
+.orbit-refined .satellite-core-ring { stroke: rgba(98,231,255,.28); fill: rgba(7,17,31,.55); }
+.orbit-refined .satellite-core-ring-soft { stroke-width: 2; stroke: rgba(98,231,255,.14); fill: none; }
+.orbit-refined .satellite-orbit-line { stroke: rgba(98,231,255,.28); }
+.orbit-refined .svg-satellite-name { font: 500 14px var(--font-display); }
+.orbit-module-role { fill: #a6bfca; font: 10px var(--font-body); }
+.orbit-module-panel { fill: #102536; stroke: rgba(150,208,224,.3); stroke-width: 1; transition: stroke .2s, fill .2s; }
+.orbit-refined .svg-satellite-link:hover .orbit-module-panel, .orbit-refined .svg-satellite-link:focus .orbit-module-panel { stroke: var(--cyan); fill: #173449; }
+.orbit-refined .tone-mint .orbit-module-panel { stroke: rgba(105,230,193,.4); }
+.orbit-refined .tone-violet .orbit-module-panel { stroke: rgba(163,139,255,.4); }
+.orbit-refined .satellite-hint { margin-top: 0; font-size: .75rem; }
+.orbit-static-modules { display: none; }
+.orbit-static-module { display: grid; gap: 10px; padding: 22px 16px; border: 1px solid rgba(150,208,224,.25); border-radius: 14px; background: #102536; color: var(--cyan); }
+.orbit-static-module strong { color: #eff9fb; font-family: var(--font-display); }
+.orbit-static-module span { color: #a6bfca; font-size: .8rem; }
+.orbit-static-module:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .orbit-refined .satellite-svg { display: none; }
+  .orbit-static-modules { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; margin: 28px 0; }
+}
+@media (max-width: 720px) {
+  .orbit-refined .satellite-svg { display: none; }
+  .orbit-static-modules { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin: 24px 0; }
+}
 .solution-implementation { position: relative; margin-top: clamp(32px, 4vw, 56px); }
 .implementation-steps { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(173,221,236,.18); }
 .implementation-steps li { display: grid; grid-template-columns: 48px 1fr; gap: 18px; min-height: 190px; padding: 30px 28px 24px 0; border-bottom: 1px solid rgba(173,221,236,.18); }

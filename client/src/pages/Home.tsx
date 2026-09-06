@@ -263,7 +263,13 @@ function ProductScenarioDetails({ lang, slug }: { lang: Lang; slug: string }) {
 function ProductSatelliteSystem({ lang }: { lang: Lang }) {
   const orbitId = "eryndex-product-orbit";
   const satelliteLabel = lang === "en" ? "Four Eryndex products orbiting the company core" : lang === "zh-CN" ? "围绕公司核心运行的四个 Eryndex 产品卫星" : "圍繞公司核心運行的四個 Eryndex 產品衛星";
-  return <div className="satellite-system" aria-label={satelliteLabel}>
+  const roles: Record<string, Copy> = {
+    qadryn: { "zh-TW": "流程自動化", "zh-CN": "流程自动化", en: "Workflow" },
+    vessyra: { "zh-TW": "資料與權限", "zh-CN": "资料与权限", en: "Security" },
+    mireqon: { "zh-TW": "營運洞察", "zh-CN": "运营洞察", en: "Insights" },
+    terviq: { "zh-TW": "企業內部 AI", "zh-CN": "企业内部 AI", en: "Internal AI" },
+  };
+  return <div className="satellite-system orbit-refined" aria-label={satelliteLabel}>
     <svg className="satellite-svg" viewBox="0 0 1000 520" role="img" aria-label={satelliteLabel}>
       <defs><path id={orbitId} d="M 110 260 A 390 150 -12 1 1 890 260 A 390 150 -12 1 1 110 260" /></defs>
       <path className="satellite-orbit-line" d="M 110 260 A 390 150 -12 1 1 890 260 A 390 150 -12 1 1 110 260" />
@@ -271,8 +277,9 @@ function ProductSatelliteSystem({ lang }: { lang: Lang }) {
       <circle className="satellite-core-ring satellite-core-ring-soft" cx="500" cy="260" r="78" />
       <image className="satellite-brand-mark" href="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" x="468" y="228" width="64" height="64" />
       <text className="satellite-core-label" x="500" y="314" textAnchor="middle">{lang === "en" ? "SYSTEM CORE" : lang === "zh-CN" ? "系统核心" : "系統核心"}</text>
-      {products.map((product, index) => { const Icon = product.icon; const begin = `-${index * 4.5}s`; return <Link key={product.slug} href={`/products/${product.slug}`} className={`svg-satellite-link tone-${product.tone}`} aria-label={tx(product.name, lang)}><g className="svg-satellite"><animateMotion dur="18s" begin={begin} repeatCount="indefinite" rotate="0"><mpath href={`#${orbitId}`} /></animateMotion><circle className="svg-satellite-shell" r="43" /><circle className="svg-satellite-icon-ring" r="16" /><foreignObject x="-11" y="-11" width="22" height="22"><div className="svg-satellite-icon"><Icon size={20} strokeWidth={1.35} /></div></foreignObject><text className="svg-satellite-name" y="29" textAnchor="middle">{tx(product.name, lang)}</text></g></Link>; })}
+      {products.map((product, index) => { const Icon = product.icon; const begin = `-${index * 8}s`; return <Link key={product.slug} href={`/products/${product.slug}`} className={`svg-satellite-link tone-${product.tone}`} aria-label={tx(product.name, lang)}><g className="svg-satellite"><animateMotion dur="32s" begin={begin} repeatCount="indefinite" rotate="0"><mpath href={`#${orbitId}`} /></animateMotion><rect className="orbit-module-panel" x="-70" y="-38" width="140" height="76" rx="16" /><foreignObject x="-53" y="-20" width="22" height="22"><div className="svg-satellite-icon"><Icon size={20} strokeWidth={1.35} /></div></foreignObject><text className="svg-satellite-name" x="-20" y="-4" textAnchor="start">{tx(product.name, lang)}</text><text className="orbit-module-role" x="-20" y="17" textAnchor="start">{tx(roles[product.slug], lang)}</text></g></Link>; })}
     </svg>
+    <div className="orbit-static-modules">{products.map(product => { const Icon = product.icon; return <Link key={product.slug} href={`/products/${product.slug}`} className={`orbit-static-module tone-${product.tone}`}><Icon size={22} /><strong>{tx(product.name, lang)}</strong><span>{tx(roles[product.slug], lang)}</span></Link>; })}</div>
     <p className="satellite-hint">{lang === "en" ? "Four modules · One connected system" : lang === "zh-CN" ? "四个模块 · 一个连接的系统" : "四個模組 · 一個連結的系統"}</p>
   </div>;
 }
