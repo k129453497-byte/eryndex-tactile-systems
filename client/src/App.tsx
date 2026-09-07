@@ -18,6 +18,7 @@ import {
 } from "./pages/Home";
 
 const homeSectionHref = (section: string) => `${import.meta.env.BASE_URL}#${section}`;
+const logoUrl = `${import.meta.env.BASE_URL}brand/eryndex-logo.webp`;
 
 const navCopy = {
   about: { "zh-TW": "關於我們", "zh-CN": "关于我们", en: "About" },
@@ -38,7 +39,7 @@ function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link href="/" className="brand" onClick={onNav} aria-label="Eryndex 智序科技 home">
-          <span className="brand-mark-wrap" aria-hidden="true"><img src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></span>
+          <span className="brand-mark-wrap" aria-hidden="true"><img src={logoUrl} alt="" /></span>
           <span className="brand-lockup"><strong>Eryndex</strong><small>智序科技</small></span>
         </Link>
         <button className="mobile-menu" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open}>
@@ -69,7 +70,7 @@ function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand-col">
           <Link href="/" className="brand footer-brand">
-            <span className="brand-mark-wrap" aria-hidden="true"><img src="https://nexoracorp-mfb35dfs.manus.space/manus-storage/eryndex-logo-light-signal_53d6e599.png" alt="" /></span>
+            <span className="brand-mark-wrap" aria-hidden="true"><img src={logoUrl} alt="" /></span>
             <span className="brand-lockup"><strong>Eryndex</strong><small>智序科技</small></span>
           </Link>
           <p>{lang === "zh-TW" ? "讓企業每天的工作，更清楚、更容易前進" : lang === "zh-CN" ? "让企业每天的工作，更清晰，更容易前进" : "Make everyday work clearer and easier to move forward"}</p>
