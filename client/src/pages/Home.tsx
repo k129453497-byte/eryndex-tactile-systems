@@ -7,13 +7,11 @@ import {
   ArrowUpRight,
   BarChart3,
   Check,
-  ChevronDown,
   CircleCheck,
   Cpu,
   FileText,
   Gauge,
   Layers3,
-  LockKeyhole,
   Network,
   Radar,
   ShieldCheck,
@@ -220,32 +218,17 @@ function ProductCard({ product }: { product: Product }) {
 
 function HomeCTA() {
   const { lang } = useSite();
-  return <section className="cta-band"><div className="container cta-inner"><div><Eyebrow>{lang === "en" ? "Start here" : lang === "zh-CN" ? "从这里开始" : "從這裡開始"}</Eyebrow><h2>{lang === "en" ? <>Start with one work scenario.<br />Make the <em>next step clearer.</em></> : lang === "zh-CN" ? <>先从一个工作场景开始，<br /><em>让下一步更清晰。</em></> : <>先從一個工作場景開始，<br /><em>讓下一步更清楚。</em></>}</h2><p>{lang === "en" ? "Bring one repeated task, one unclear risk, or one question your team keeps revisiting. We will start from the work, not a generic pitch." : lang === "zh-CN" ? "带来一项重复工作、一个尚未厘清的风险，或一个团队反复讨论的问题。我们会从实际工作开始，而不是从制式提案开始。" : "帶來一項重複工作、一個尚未釐清的風險，或一個團隊反覆討論的問題。我們會從實際工作開始，而不是從制式提案開始。"}</p></div><PrimaryButton href="/contact">{lang === "en" ? "Talk to Eryndex about your needs" : lang === "zh-CN" ? "与 Eryndex 讨论需求" : "與 Eryndex 討論需求"}</PrimaryButton></div></section>;
-}
-
-function HomeChallenges() {
-  const { lang } = useSite();
-  const challenges = [
-    { icon: Workflow, title: { "zh-TW": "流程分散", "zh-CN": "流程分散", en: "Scattered workflows" }, text: { "zh-TW": "工作散落在表單、信箱、試算表與聊天工具之間；重複作業靠人工接力，進度與責任不容易被清楚追蹤。", "zh-CN": "工作散落在表单、邮箱、表格与聊天工具之间；重复作业依靠人工接力，进度与责任不容易被清晰追踪。", en: "Work moves between forms, inboxes, spreadsheets, and chat. Manual handoffs make progress and ownership difficult to see." } },
-    { icon: LockKeyhole, title: { "zh-TW": "邊界不清", "zh-CN": "边界不清", en: "Unclear boundaries" }, text: { "zh-TW": "帳號、權限、裝置與資料的存取規則，容易隨著團隊成長而變得模糊，讓日常營運累積不必要的風險。", "zh-CN": "帐号、权限、设备与资料的存取规则，容易随着团队成长而变得模糊，让日常运营累积不必要的风险。", en: "Access rules for identities, devices, and data can blur as a team grows, creating unnecessary operational risk." } },
-    { icon: Radar, title: { "zh-TW": "訊號被埋沒", "zh-CN": "讯号被埋没", en: "Signals get buried" }, text: { "zh-TW": "銷售、客服、專案與營運資料各自存在。資料持續累積，團隊卻不一定能及時理解異常、趨勢與下一步。", "zh-CN": "销售、客服、专案与运营资料各自存在。资料持续累积，团队却不一定能及时理解异常、趋势与下一步。", en: "Sales, service, project, and operational data live apart. Teams collect more data without always seeing the next decision." } },
-  ];
-  return <section className="home-challenges home-topic" aria-labelledby="challenges-title"><div className="container"><div className="section-heading challenge-heading"><div><Eyebrow index="02">{lang === "en" ? "Where work gets stuck" : lang === "zh-CN" ? "工作卡住的地方" : "工作卡住的地方"}</Eyebrow><h2 id="challenges-title">{lang === "en" ? <>The problem is rarely<br /><em>a lack of tools.</em></> : lang === "zh-CN" ? <>问题通常不在工具不够，<br /><em>而在工作没有被清楚串起。</em></> : <>問題通常不在工具不夠，<br /><em>而在工作沒有被清楚串起。</em></>}</h2></div><p>{lang === "en" ? "When work loses its context, teams spend more time moving information, confirming status, and chasing decisions than making progress." : lang === "zh-CN" ? "当工作失去脉络，团队往往花更多时间搬运资讯、确认进度与追问决定，而不是实际推进工作。" : "當工作失去脈絡，團隊往往花更多時間搬運資訊、確認進度與追問決定，而不是實際推進工作。"}</p></div><div className="challenge-grid">{challenges.map((challenge, index) => { const Icon = challenge.icon; return <article className="challenge-card" key={tx(challenge.title, lang)}><span className="challenge-index">0{index + 1}</span><Icon size={24} strokeWidth={1.35} /><h3>{tx(challenge.title, lang)}</h3><p>{tx(challenge.text, lang)}</p></article>; })}</div></div></section>;
+  return <section className="cta-band"><div className="container cta-inner"><div><Eyebrow>{lang === "en" ? "Designed for enterprise reality" : lang === "zh-CN" ? "为企业现实而设计" : "為企業現實而設計"}</Eyebrow><h2>{lang === "en" ? <>Start with one real work scenario.<br />Make the <em>next step clearer.</em></> : lang === "zh-CN" ? <>从一个真实工作场景开始，<br /><em>让下一步更清晰。</em></> : <>從一個真實工作場景開始，<br /><em>讓下一步更清楚。</em></>}</h2><p>{lang === "en" ? "Useful AI begins with clear data boundaries, understandable access, and workflows people can review. Bring one repeated task, one unclear risk, or one question your team keeps revisiting—we will begin with the actual work, not a generic pitch." : lang === "zh-CN" ? "有用的 AI，必须建立在清楚的资料边界、可理解的存取方式，以及团队能够检视的工作流程上。带来一项重复工作、一个尚未厘清的风险，或一个团队反复讨论的问题；我们会从实际工作开始，而不是从制式提案开始。" : "有用的 AI，必須建立在清楚的資料邊界、可理解的存取方式，以及團隊能夠檢視的工作流程上。帶來一項重複工作、一個尚未釐清的風險，或一個團隊反覆討論的問題；我們會從實際工作開始，而不是從制式提案開始。"}</p><p>{lang === "en" ? "The goal is not to automate everything, but to make routine work more consistent while keeping important judgment visible and with the people responsible for it." : lang === "zh-CN" ? "目标不是把所有事情都自动化，而是让例行工作更一致，并把重要判断留在负责的人手上。" : "目標不是把所有事情都自動化，而是讓例行工作更一致，並把重要判斷留在負責的人手上。"}</p></div><PrimaryButton href="/contact">{lang === "en" ? "Talk to Eryndex about your needs" : lang === "zh-CN" ? "与 Eryndex 讨论需求" : "與 Eryndex 討論需求"}</PrimaryButton></div></section>;
 }
 
 function SolutionImplementation() {
   const { lang } = useSite();
   const steps = [
-    { number: "01", title: { "zh-TW": "釐清工作", "zh-CN": "厘清工作", en: "Clarify the work" }, text: { "zh-TW": "從一個重複、延遲或風險較高的工作場景開始，先看清參與角色、資料來源與真正需要判斷的節點。", "zh-CN": "从一个重复、延迟或风险较高的工作场景开始，先看清参与角色、资料来源与真正需要判断的节点。", en: "Begin with one repeated, delayed, or high-risk scenario. Make the people, data sources, and decision points visible." } },
-    { number: "02", title: { "zh-TW": "建立模組", "zh-CN": "建立模块", en: "Build a module" }, text: { "zh-TW": "依需求選擇流程自動化、資料邊界、營運洞察或企業內部 AI，讓改善先在可衡量的範圍內發生。", "zh-CN": "依需求选择流程自动化、资料边界、运营洞察或企业内部 AI，让改善先在可衡量的范围内发生。", en: "Apply workflow, security, insight, or internal AI capabilities where the outcome can first be measured." } },
-    { number: "03", title: { "zh-TW": "逐步連結", "zh-CN": "逐步连接", en: "Connect over time" }, text: { "zh-TW": "當第一個場景變得清楚且可持續，再連結下一個流程、資料或團隊，讓系統跟著企業節奏成長。", "zh-CN": "当第一个场景变得清晰且可持续，再连接下一个流程、资料或团队，让系统跟着企业节奏成长。", en: "Once the first scenario is clear and sustainable, connect the next process, data source, or team at the business's pace." } },
+    { number: "01", challenge: { "zh-TW": "流程分散", "zh-CN": "流程分散", en: "Scattered workflows" }, title: { "zh-TW": "釐清工作", "zh-CN": "厘清工作", en: "Clarify the work" }, text: { "zh-TW": "工作散落在表單、信箱、試算表與聊天工具時，先把參與角色、資料來源、交接關係與真正需要判斷的節點畫清楚。", "zh-CN": "工作散落在表单、邮箱、试算表与聊天工具时，先把参与角色、资料来源、交接关系与真正需要判断的节点画清楚。", en: "When work is scattered across forms, inboxes, spreadsheets, and chat, first make the people, data sources, handoffs, and real decision points visible." } },
+    { number: "02", challenge: { "zh-TW": "規則與邊界不清", "zh-CN": "规则与边界不清", en: "Unclear rules and boundaries" }, title: { "zh-TW": "建立模組", "zh-CN": "建立模块", en: "Build a module" }, text: { "zh-TW": "一次處理一個明確責任，依需求建立流程自動化、資料安全、營運洞察或企業內部 AI 模組，定義資料、權限與可衡量結果。", "zh-CN": "一次处理一个明确责任，依需求建立流程自动化、资料安全、运营洞察或企业内部 AI 模块，定义资料、权限与可衡量结果。", en: "Give one module one clear responsibility. Define its data, access boundaries, and measurable outcome through workflow, security, insight, or internal AI capabilities." } },
+    { number: "03", challenge: { "zh-TW": "訊號彼此斷開", "zh-CN": "讯号彼此断开", en: "Signals remain disconnected" }, title: { "zh-TW": "逐步連結", "zh-CN": "逐步连接", en: "Connect over time" }, text: { "zh-TW": "第一個模組穩定後，再連結下一個流程、資料來源或團隊，讓分散訊號形成可理解的脈絡，系統也能跟著企業節奏成長。", "zh-CN": "第一个模块稳定后，再连接下一个流程、资料来源或团队，让分散讯号形成可理解的脉络，系统也能跟着企业节奏成长。", en: "Once the first module is stable, connect the next process, data source, or team so isolated signals form usable context and the system grows at the business's pace." } },
   ];
-  return <div className="solution-implementation"><ol className="implementation-steps">{steps.map((step) => <li key={step.number}><span>{step.number}</span><div><h3>{tx(step.title, lang)}</h3><p>{tx(step.text, lang)}</p></div></li>)}</ol></div>;
-}
-
-function HomeTrust() {
-  const { lang } = useSite();
-  return <section className="trust-section home-topic"><div className="container trust-grid"><div><Eyebrow>{lang === "en" ? "Designed for enterprise reality" : lang === "zh-CN" ? "为企业现实而设计" : "為企業現實而設計"}</Eyebrow><h2>{lang === "en" ? <>AI should not move<br /><em>your data further away.</em></> : lang === "zh-CN" ? <>AI 不该让资料<br /><em>离企业更远。</em></> : <>AI 不該讓資料<br /><em>離企業更遠。</em></>}</h2></div><div className="trust-copy"><p>{lang === "en" ? "Useful AI begins with clear data boundaries, understandable access, and workflows that people can review. Eryndex treats these as design choices from the start—not controls added after the fact." : lang === "zh-CN" ? "有用的 AI 必须从清楚的资料边界、可理解的存取方式，以及团队能够检视的工作流程开始。Eryndex 把这些视为一开始就该做好的设计选择，而不是事后才补上的控制。" : "有用的 AI 必須從清楚的資料邊界、可理解的存取方式，以及團隊能夠檢視的工作流程開始。Eryndex 把這些視為一開始就該做好的設計選擇，而不是事後才補上的控制。"}</p><p>{lang === "en" ? "The aim is not to automate everything. It is to make routine work more consistent while keeping important judgment visible and with the people responsible for it." : lang === "zh-CN" ? "目标不是把所有事情都自动化，而是让例行工作更一致，同时让重要判断维持可见，并留在负责的人手上。" : "目標不是把所有事情都自動化，而是讓例行工作更一致，同時讓重要判斷維持可見，並留在負責的人手上。"}</p></div></div></section>;
+  return <div className="solution-implementation"><ol className="implementation-steps">{steps.map((step) => <li key={step.number}><span>{step.number}</span><div><p className="implementation-problem">{lang === "en" ? "WORK GETS STUCK" : lang === "zh-CN" ? "工作卡点" : "工作卡點"} · {tx(step.challenge, lang)}</p><h3>{tx(step.title, lang)}</h3><p>{tx(step.text, lang)}</p></div></li>)}</ol></div>;
 }
 
 function ProductScenarioDetails({ lang, slug }: { lang: Lang; slug: string }) {
@@ -310,19 +293,6 @@ function HomeAbout() {
   </>;
 }
 
-function HomeResources() {
-  const { lang } = useSite();
-  return <>
-    <section className="resources-articles section-dark home-topic" id="resources">
-      <div className="container">
-        <div className="section-heading split-heading"><div><Eyebrow index="04">{lang === "en" ? "Resource center" : lang === "zh-CN" ? "资源中心" : "資源中心"}</Eyebrow><h2>{lang === "en" ? <>How this site<br /><em>takes shape</em></> : lang === "zh-CN" ? <>这个网站<br /><em>如何成形</em></> : <>這個網站<br /><em>如何成形</em></>}</h2></div><span className="example-badge">PRODUCTION NOTES / 製作紀錄</span></div>
-        <p className="home-topic-intro">{lang === "en" ? "A concise record of the production skills, AI visual tooling, and design references behind this website" : lang === "zh-CN" ? "记录本网站使用的制作能力、AI 视觉工具与设计参考方向" : "記錄本網站使用的製作能力、AI 視覺工具與設計參考方向"}</p>
-        <div className="articles-grid">{articleData.map((article) => <ArticleCard key={tx(article.title, lang)} article={article} />)}</div>
-      </div>
-    </section>
-  </>;
-}
-
 export function Home() {
   const { lang } = useSite();
   return <>
@@ -370,26 +340,23 @@ export function Home() {
         <div className="hero-art"><div className="hero-orbit orbit-a"><span className="hero-signal-dot dot-green" /></div><div className="hero-orbit orbit-b"><span className="hero-signal-dot dot-violet" /></div><div className="hero-image-frame"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663923627772/okYRpvrSlQAxMEsw.png" alt={lang === "en" ? "Abstract enterprise intelligence network with connected data signals" : lang === "zh-CN" ? "连接数据讯号的抽象企业智能网络" : "連結資料訊號的抽象企業智慧網路"} /><div className="hero-art-overlay" /></div><svg className="hero-signal-overlay" viewBox="0 0 800 520" preserveAspectRatio="none" aria-hidden="true"><path id="hero-route-cyan" className="hero-signal-path path-cyan" pathLength="100" d="M-30 378 C120 328 132 184 286 226 S470 370 610 226 S730 130 830 162" /><path id="hero-route-mint" className="hero-signal-path path-mint" pathLength="100" d="M-30 116 C112 156 172 320 314 286 S484 116 628 180 S742 318 830 278" /><path id="hero-route-violet" className="hero-signal-path path-violet" pathLength="100" d="M-24 444 C140 408 226 354 344 382 S542 468 824 350" /><circle className="hero-signal-node node-cyan" cx="286" cy="226" r="3" /><circle className="hero-signal-node node-mint" cx="314" cy="286" r="3" /><circle className="hero-signal-node node-violet" cx="542" cy="420" r="3" /><circle className="hero-signal-runner runner-cyan" r="3.2"><animateMotion dur="6.8s" begin="-1.2s" repeatCount="indefinite" rotate="auto"><mpath href="#hero-route-cyan" xlinkHref="#hero-route-cyan" /></animateMotion></circle><circle className="hero-signal-runner runner-cyan runner-secondary" r="2.1"><animateMotion dur="10.5s" begin="-6.4s" repeatCount="indefinite" rotate="auto"><mpath href="#hero-route-cyan" xlinkHref="#hero-route-cyan" /></animateMotion></circle><circle className="hero-signal-runner runner-mint" r="2.8"><animateMotion dur="8.4s" begin="-4.8s" repeatCount="indefinite" rotate="auto"><mpath href="#hero-route-mint" xlinkHref="#hero-route-mint" /></animateMotion></circle><circle className="hero-signal-runner runner-mint runner-secondary" r="1.9"><animateMotion dur="12.6s" begin="-1.7s" repeatCount="indefinite" rotate="auto"><mpath href="#hero-route-mint" xlinkHref="#hero-route-mint" /></animateMotion></circle><circle className="hero-signal-runner runner-violet" r="2.7"><animateMotion dur="9.7s" begin="-7.1s" repeatCount="indefinite" rotate="auto"><mpath href="#hero-route-violet" xlinkHref="#hero-route-violet" /></animateMotion></circle><circle className="hero-signal-runner runner-violet runner-secondary" r="1.8"><animateMotion dur="14.2s" begin="-3.9s" repeatCount="indefinite" rotate="auto"><mpath href="#hero-route-violet" xlinkHref="#hero-route-violet" /></animateMotion></circle></svg></div>
       </div>
     </section>
-    <HomeChallenges />
     <HomeAbout />
-    <section className="product-intro section-dark home-topic" id="products"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="03">{lang === "en" ? "Product system" : lang === "zh-CN" ? "产品系统" : "產品系統"}</Eyebrow><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>使工作<br /><em>流动得更清晰</em></> : <>使工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div></section>
+    <section className="product-intro section-dark home-topic" id="products"><div className="container"><div className="section-heading split-heading"><div><Eyebrow index="02">{lang === "en" ? "Product system" : lang === "zh-CN" ? "产品系统" : "產品系統"}</Eyebrow><h2>{lang === "en" ? <>Make the <em>work</em><br />flow clearer</> : lang === "zh-CN" ? <>使工作<br /><em>流动得更清晰</em></> : <>使工作<br /><em>流動得更清晰</em></>}</h2></div><p>{lang === "en" ? "From the first form to the final decision, Eryndex connects the signals that keep a business moving" : lang === "zh-CN" ? "从第一张表单到最后一个决策，Eryndex 连接让企业持续前进的关键讯号" : "從第一張表單到最後一個決策，Eryndex 連結讓企業持續前進的關鍵訊號"}</p></div><div className="product-grid">{products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div></section>
     <section className="solutions-preview section-dark home-topic" id="solutions">
       <div className="container">
         <div className="section-heading split-heading">
           <div>
-            <Eyebrow index="05">{lang === "en" ? "Solutions" : lang === "zh-CN" ? "解决方案" : "解決方案"}</Eyebrow>
+            <Eyebrow index="03">{lang === "en" ? "Solutions" : lang === "zh-CN" ? "解决方案" : "解決方案"}</Eyebrow>
             <h2>{lang === "en" ? <>Independent as modules.<br /><em>Connected as a system.</em></> : lang === "zh-CN" ? <>独立成为模块，<br /><em>组合成为系统</em></> : <>獨立成為模組，<br /><em>組合成為系統</em></>}</h2>
             <p className="solution-system-intro">{lang === "en" ? "Four AI work modules with distinct roles. Start with one, then connect the pieces as your work becomes clearer" : lang === "zh-CN" ? "四个各自有清晰角色的 AI 工作模块。可以从一个开始，再随着工作脉络逐步连接" : "四個各自有清楚角色的 AI 工作模組。可以從一個開始，再隨著工作脈絡逐步連接"}</p>
           </div>
-          <HomeAnchor id="resources" className="arrow-link">{lang === "en" ? "Continue to resources" : lang === "zh-CN" ? "继续查看资源" : "繼續查看資源"}<ArrowRight size={16} /></HomeAnchor>
+          <Link href="/contact" className="arrow-link">{lang === "en" ? "Discuss an adoption path" : lang === "zh-CN" ? "讨论导入路径" : "討論導入路徑"}<ArrowRight size={16} /></Link>
         </div>
         <ProductSatelliteSystem lang={lang} />
         <SolutionImplementation />
         <p className="solution-composition-note">{lang === "en" ? "Use one module on its own. Connect the next one when the business is ready." : lang === "zh-CN" ? "可以单独使用一个模块，也可以在企业准备好时连接下一个模块。" : "可以單獨使用一個模組，也可以在企業準備好時連接下一個模組。"}</p>
       </div>
     </section>
-    <HomeTrust />
-    <HomeResources />
     <HomeCTA />
   </>;
 }
@@ -434,17 +401,6 @@ function SolutionImage({ product }: { product: Product }) {
 export function SolutionsPage() {
   const { lang } = useSite();
   return <><Meta title={lang === "en" ? "Solutions | Eryndex" : lang === "zh-CN" ? "解决方案｜Eryndex" : "解決方案｜Eryndex"} description={lang === "en" ? "Practical AI paths for administration, security, insight, and on-site deployment" : "為行政、資安、洞察與內部部署設計的實務 AI 解決方案"} /><PageHeader index="03" eyebrow={{ "zh-TW": "解決方案", "zh-CN": "解决方案", en: "Solutions" }} title={lang === "en" ? <>Begin with the<br /><em>work that matters</em></> : lang === "zh-CN" ? <>从真正重要的<br /><em>工作开始</em></> : <>從真正重要的<br /><em>工作開始</em></>} intro={{ "zh-TW": "不從技術名詞開始，而是從企業每天正在發生的工作開始選一個場景，建立可理解、可持續的改善路徑", "zh-CN": "不从技术名词开始，而是从企业每天正在发生的工作开始选择一个场景，建立可理解、可持续的改善路径", en: "Do not start with technology terms. Start with the work happening every day, choose one scenario, and build a path that can be understood and improved" }} /><section className="solution-detail-list section-dark"><div className="container">{solutions.map((solution, index) => { const Icon = solution.icon; const product = products.find((item) => item.slug === solution.product)!; return <article className="solution-detail-row" key={solution.id}><div className="solution-detail-label"><span>{solution.number}</span><Icon size={20} strokeWidth={1.5} /></div><div className="solution-detail-copy"><p className="card-category">{tx(solution.title, lang)}</p><h2>{tx(solution.title, lang)}</h2><p>{tx(solution.text, lang)}</p><Link href={`/products/${solution.product}`} className="text-link">{lang === "en" ? `Explore ${tx(product.name, lang)}` : lang === "zh-CN" ? `查看 ${tx(product.name, lang)}` : `查看 ${tx(product.name, lang)}`}<ArrowUpRight size={15} /></Link></div><SolutionImage product={product} /></article>; })}</div></section><HomeCTA /></>;
-}
-
-function ArticleCard({ article }: { article: (typeof articleData)[number] }) {
-  const { lang } = useSite();
-  return <article className={`article-card tone-${article.tone}`}><div className="article-art"><div className="article-lines" /><span>RESOURCE / 2026</span></div><div className="article-copy"><p className="card-category">{tx(article.tag, lang)}</p><h3>{tx(article.title, lang)}</h3><p className="article-read">{tx(article.read, lang)}</p><ul className="article-details">{list(article.details, lang).map((detail) => <li key={detail}>{detail}</li>)}</ul>{article.references.length > 0 && <div className="article-source-links">{article.references.map((reference) => <a href={reference.href} key={reference.href} target="_blank" rel="noreferrer">{tx(reference.label, lang)}<ArrowUpRight size={13} /></a>)}</div>}</div></article>;
-}
-
-export function ResourcesPage() {
-  const { lang } = useSite();
-  const [openFaq, setOpenFaq] = useState(0);
-  return <><Meta title={lang === "en" ? "Resources | Eryndex" : lang === "zh-CN" ? "资源中心｜Eryndex" : "資源中心｜Eryndex"} description={lang === "en" ? "Example articles, AI adoption guidance, security checklists, and FAQs from Eryndex" : "Eryndex 的示範文章、AI 導入指南、資安清單與常見問題"} /><PageHeader index="04" eyebrow={{ "zh-TW": "資源中心", "zh-CN": "资源中心", en: "Resource center" }} title={lang === "en" ? <>Make the next<br /><em>decision clearer</em></> : lang === "zh-CN" ? <>让下一个<br /><em>决定更清晰</em></> : <>讓下一個<br /><em>決定更清晰</em></>} intro={{ "zh-TW": "把 AI 導入、資料治理與營運改善拆成容易理解的觀點以下內容目前皆為示範文章，不代表真實客戶案例", "zh-CN": "把 AI 导入、数据治理与运营改善拆成容易理解的观点以下内容目前均为示例文章，不代表真实客户案例", en: "Clear perspectives on AI adoption, data governance, and operational improvement. All content below is currently an example and does not represent customer cases" }} /><section className="resources-articles section-dark"><div className="container"><div className="section-heading split-heading"><div><Eyebrow>{lang === "en" ? "Example notes" : lang === "zh-CN" ? "示范文章" : "示範文章"}</Eyebrow><h2>{lang === "en" ? <>Ideas for the<br /><em>work ahead</em></> : lang === "zh-CN" ? <>给下一步<br /><em>工作的想法</em></> : <>給下一步<br /><em>工作的想法</em></>}</h2></div><span className="example-badge">EXAMPLE CONTENT / 非真实案例</span></div><div className="articles-grid">{articleData.map((article) => <ArticleCard key={tx(article.title, lang)} article={article} />)}</div></div></section><section className="faq-section"><div className="container faq-grid"><div><Eyebrow>FAQ</Eyebrow><h2>{lang === "en" ? <>Questions before<br /><em>the first conversation</em></> : lang === "zh-CN" ? <>第一次对话前，<br /><em>你可能会问</em></> : <>第一次對話前，<br /><em>你可能會問</em></>}</h2><p>{lang === "en" ? "Still have a question? Bring it to the team" : lang === "zh-CN" ? "还有问题？欢迎带来和团队一起讨论" : "還有問題？歡迎帶來和團隊一起討論"}</p><Link href="/contact" className="arrow-link">{lang === "en" ? "Ask Eryndex" : lang === "zh-CN" ? "联系 Eryndex" : "聯絡 Eryndex"}<ArrowRight size={16} /></Link></div><div className="faq-list">{faqs.map((faq, index) => <div className={openFaq === index ? "faq-item open" : "faq-item"} key={tx(faq.q, lang)}><button onClick={() => setOpenFaq(openFaq === index ? -1 : index)} aria-expanded={openFaq === index}><span>{tx(faq.q, lang)}</span><ChevronDown size={19} /></button><div className="faq-answer"><p>{tx(faq.a, lang)}</p></div></div>)}</div></div></section><HomeCTA /></>;
 }
 
 export function ContactPage() {
